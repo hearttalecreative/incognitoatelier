@@ -2,18 +2,28 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import WordRotator from "@/components/ui/word-rotator";
+import BackgroundSlideshow from "@/components/ui/background-slideshow";
 import TestimonialCarousel from "@/components/sections/testimonial-carousel";
 import HexagonGallery from "@/components/sections/hexagon-gallery";
-import { clientProfiles, closingWords, cravings, partnerLogos, pillars } from "@/data/home";
+import {
+  clientProfiles,
+  closingWords,
+  cravings,
+  luxurySlideshow,
+  clientsSlideshow,
+  partnerLogos,
+  pillars,
+} from "@/data/home";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
-/* Bulleted lists render in taupe at body size, matching the Elementor icon-list. */
+/* Elementor icon-lists set no row gap; line-height alone separates the items. */
 const IconList = ({ items }: { items: string[] }) => (
-  <ul className="flex flex-col gap-2">
+  <ul className="e-list">
     {items.map((item) => (
-      <li key={item} className="t-body text-taupe">
+      <li key={item} className="t-body text-ink">
         {item}
       </li>
     ))}
@@ -21,16 +31,22 @@ const IconList = ({ items }: { items: string[] }) => (
 );
 
 /*
-  The photo columns on this page are containers with a background image and a
-  fixed min-height, not plain <img> tags — so they crop the same way.
+  The photo column on this page is a 460px frame with a cross-fading slideshow
+  and the small wordmark pinned bottom-right.
 */
-const PhotoPanel = ({ src, height }: { src: string; height: number }) => (
+const PhotoPanel = ({ images, height }: { images: string[]; height: number }) => (
   <div className="flex w-full items-center justify-center p-[50px] max-md:p-5 md:w-[560px]">
     <div
-      className="flex w-full max-w-[460px] items-end justify-end bg-cover bg-center p-[25px]"
-      style={{ backgroundImage: `url(${src})`, minHeight: height }}
+      className="relative flex w-full max-w-[460px] items-end justify-end overflow-hidden p-[25px]"
+      style={{ minHeight: height }}
     >
-      <img src="/assets/logo-horizontal-white.svg" alt="" aria-hidden="true" className="w-[80px]" />
+      <BackgroundSlideshow images={images} />
+      <img
+        src="/assets/logo-horizontal-white.svg"
+        alt=""
+        aria-hidden="true"
+        className="relative w-[80px]"
+      />
     </div>
   </div>
 );
@@ -44,14 +60,16 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero — 765px band, Vimeo background, 900px centred stack */}
+      {/* Hero — 765px band, Vimeo background under a 57% black multiply */}
       <Section
-        className="flex min-h-[765px] items-center overflow-hidden bg-black px-[10px]"
+        className="min-h-[85vh] overflow-hidden bg-black px-[10px] max-md:min-h-screen"
+        background={
+          <VimeoBackground videoId="1145039689" poster="/assets/poster-home-hero.jpg" />
+        }
+        overlay={<Overlay color="#000000" opacity={0.57} />}
         innerWidth={900}
-        innerClassName="relative items-center justify-center gap-5 py-[10px] text-center text-white"
+        innerClassName="min-h-[85vh] items-center justify-center gap-5 py-[10px] text-center text-white max-md:min-h-screen"
       >
-        <VimeoBackground videoId="1145039689" poster="/assets/poster-home-hero.jpg" />
-
         <Reveal>
           <h1 className="t-display-xl mt-[35px] max-md:mt-20">
             Luxury travel,
@@ -59,18 +77,18 @@ const Index = () => {
             designed with meaning
           </h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal>
           <p className="t-serif-lg">Where every journey becomes legacy.</p>
         </Reveal>
-        <Reveal delay={240}>
+        <Reveal>
           <p className="t-body-lg">
             We craft bespoke getaways, meaningful journeys, and restorative escapes with the
             precision of couture, experiences that protect time, restore balance, and create
             legacies.
           </p>
         </Reveal>
-        <Reveal delay={360}>
-          <a href="#begin" className="btn-cream">
+        <Reveal animation="zoomIn">
+          <a href="#begin" className="btn-light btn-lg">
             Let's Begin
           </a>
         </Reveal>
@@ -93,7 +111,7 @@ const Index = () => {
         </div>
 
         <div className="flex w-full flex-col items-start justify-center p-[10px] md:w-[440px]">
-          <Reveal delay={120}>
+          <Reveal>
             <p className="t-body text-foreground max-md:text-center">
               We are Incognito Atelier, the discreet luxury travel atelier trusted by
               ultra-high-net-worth families, founders, and visionaries.
@@ -122,60 +140,64 @@ const Index = () => {
         </Reveal>
       </Section>
 
-      {/* Designed for a Different Kind of Luxury — copy right, photo left */}
+      {/* Designed for a Different Kind of Luxury — monogram watermark at 3% */}
       <Section
-        className="bg-white bg-contain bg-right bg-no-repeat max-md:bg-bottom"
-        style={{ backgroundImage: "url(/assets/logo-monogram-black.svg)" }}
+        className="bg-white"
+        overlay={
+          <Overlay
+            image="/assets/logo-monogram-black.svg"
+            opacity={0.03}
+            blend="multiply"
+            position="center right"
+            size="contain"
+          />
+        }
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
         <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal>
+          <Reveal animation="fadeInLeft" className="flex flex-col gap-5">
             <h2 className="t-display-lg text-foreground max-md:text-center">
               Designed for a Different Kind of Luxury
             </h2>
-          </Reveal>
-          <Reveal delay={80}>
             <p className="t-body text-foreground max-md:text-center">
-              In a World That Moves Fast, We Curate the Opposite.
+              <span className="font-medium">
+                In a World That Moves Fast, We Curate the Opposite.
+              </span>
               <br />
               Your life moves fast. Your schedule is full. Your roles carry weight. And yet, what
               you crave is simple:
             </p>
-          </Reveal>
-          <Reveal delay={160}>
             <IconList items={cravings} />
-          </Reveal>
-          <Reveal delay={240}>
             <p className="t-body font-medium text-foreground max-md:text-center">
               We create journeys that meet you where you are, and guide you gently back to where you
               want to be.
             </p>
-            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-primary mt-5">
+            <Link
+              to="/contact?subject=Plan%20my%20Journey"
+              className="btn-dark self-start max-md:self-center"
+            >
               Start Designing With Us
             </Link>
           </Reveal>
         </div>
 
         <Reveal>
-          <PhotoPanel src="/assets/woman-sea-view.jpg" height={600} />
+          <PhotoPanel images={luxurySlideshow} height={600} />
         </Reveal>
       </Section>
 
-      {/* Airplane band */}
+      {/* Airplane band — photograph under a 36% black multiply */}
       <Section
-        className="min-h-[221px] overflow-hidden bg-black px-[10px]"
+        className="min-h-[221px] overflow-hidden bg-black bg-cover bg-center bg-no-repeat px-[10px]"
+        style={{ backgroundImage: "url(/assets/airplane-sunset.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.36} />}
         innerWidth={1000}
-        innerClassName="relative min-h-[221px] items-center justify-center gap-5 py-[10px] text-center text-white"
+        innerClassName="min-h-[221px] items-center justify-center gap-5 py-[10px] text-center text-white"
       >
-        <img
-          src="/assets/airplane-sunset.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-          loading="lazy"
-        />
         <Reveal>
           <p className="t-serif-caps">Every itinerary is designed to renew, delight, and restore.</p>
+        </Reveal>
+        <Reveal>
           <p className="t-serif-sm -mt-[13px] max-md:-mt-[10px]">
             True luxury is not more travel, it is the right travel, designed to honor your time,
             your energy, and your legacy.
@@ -214,28 +236,35 @@ const Index = () => {
           ))}
         </div>
 
-        <Reveal delay={200}>
+        <Reveal animation="zoomIn">
           <div className="flex items-center justify-center p-[10px]">
-            <Link to="/contact?subject=Request%20a%20Private%20Consultation" className="btn-primary">
+            <Link to="/contact?subject=Request%20a%20Private%20Consultation" className="btn-dark">
               Request a Private Consultation
             </Link>
           </div>
         </Reveal>
       </Section>
 
-      {/* The Experience — video band, 684px panel pinned right */}
+      {/* The Experience — video band, wordmark watermark, 684px panel pinned right */}
       <Section
-        className="min-h-[524px] overflow-hidden px-[10px]"
-        innerClassName="relative min-h-[524px] items-end py-[10px]"
+        className="min-h-[144px] overflow-hidden px-[10px]"
+        background={
+          <VimeoBackground videoId="1145411284" poster="/assets/poster-home-experience.jpg" />
+        }
+        overlay={
+          <Overlay
+            color="#0000007A"
+            image="/assets/logo-monogram-white.svg"
+            opacity={1}
+            position="223px center"
+            size="35% auto"
+          />
+        }
+        innerClassName="min-h-[144px] items-end py-[10px]"
       >
-        <VimeoBackground videoId="1145411284" poster="/assets/poster-home-experience.jpg" />
-        <div className="absolute inset-0 bg-black/[0.48]" />
-
-        <div className="relative flex w-full flex-col gap-5 bg-transparent p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
-          <Reveal>
+        <div className="flex w-full flex-col gap-5 p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
+          <Reveal animation="fadeInRight" className="flex flex-col gap-5">
             <h2 className="t-display-lg max-md:text-center">The Experience</h2>
-          </Reveal>
-          <Reveal delay={100}>
             <p className="t-body max-md:text-center">
               Travel that becomes enduring memories. This is not the joy of display, but of being.
               <br />
@@ -256,9 +285,7 @@ const Index = () => {
               We design beyond logistics. Itineraries become experiences that stay with you, long
               after you return. This is travel that feels considered, human, and lasting.
             </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-primary self-start">
+            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-light self-start">
               Tell Us What You Envision
             </Link>
           </Reveal>
@@ -271,42 +298,46 @@ const Index = () => {
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row"
       >
         <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal>
+          <Reveal className="flex flex-col gap-5">
             <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
               Designed for those who understand that true luxury is found in time, presence, and
               connection.
             </h2>
-          </Reveal>
-          <Reveal delay={80}>
             <p className="t-body text-foreground max-md:text-center">
               Designed for the Few Who Understand That Luxury Grounds You.
               <br />
               Our clients are:
             </p>
-          </Reveal>
-          <Reveal delay={160}>
             <IconList items={clientProfiles} />
-          </Reveal>
-          <Reveal delay={240}>
             <p className="t-body font-medium text-foreground max-md:text-center">
               They come to us not for vacations, but for space, clarity, connection, and joy that
               returns with them.
             </p>
-            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-primary mt-5">
+            <Link
+              to="/contact?subject=Plan%20my%20Journey"
+              className="btn-dark self-start max-md:self-center"
+            >
               Discover What's Possible
             </Link>
           </Reveal>
         </div>
 
         <Reveal>
-          <PhotoPanel src="/assets/landscape-panorama.jpg" height={648} />
+          <PhotoPanel images={clientsSlideshow} height={648} />
         </Reveal>
       </Section>
 
-      {/* Legacy Travel Portfolio — plated table photograph anchored right */}
+      {/* Legacy Travel Portfolio — plated table photograph as a right-anchored overlay */}
       <Section
-        className="min-h-[469px] bg-ink bg-contain bg-right bg-no-repeat max-md:bg-cover"
-        style={{ backgroundImage: "url(/assets/contact-table-setting.jpg)" }}
+        className="min-h-[469px] bg-ink"
+        overlay={
+          <Overlay
+            image="/assets/contact-table-setting.jpg"
+            opacity={1}
+            position="center right"
+            size="contain"
+          />
+        }
         innerClassName="min-h-[469px] items-stretch justify-start gap-0 pb-[65px] pt-[55px] max-lg:justify-around max-md:items-center md:flex-row"
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[342px]">
@@ -321,7 +352,7 @@ const Index = () => {
         </div>
 
         <div className="flex flex-col items-start justify-center gap-5 py-[45px] pr-[45px] max-md:items-center max-md:px-5 md:w-[570px]">
-          <Reveal delay={120}>
+          <Reveal className="flex flex-col gap-5">
             <p className="t-body text-white max-md:text-center">
               A private, long-term partnership for discerning travelers who see every journey as
               part of a greater story, their own.
@@ -333,7 +364,7 @@ const Index = () => {
               <br />
               Each journey becomes a reflection of who you are and who you're becoming.
             </p>
-            <Link to="/legacy-travel-portfolio" className="btn-primary mt-5">
+            <Link to="/legacy-travel-portfolio" className="btn-light self-start max-md:self-center">
               Explore the Legacy Portfolio
             </Link>
           </Reveal>
@@ -352,12 +383,12 @@ const Index = () => {
             Our Global Network
           </h2>
         </Reveal>
-        <Reveal delay={60}>
+        <Reveal>
           <p className="text-center font-display text-[23px] font-light italic leading-[1.1em] text-foreground max-md:text-[22px]">
             Our partnerships are built on trust, excellence, and access.
           </p>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal>
           <p className="t-body text-center text-foreground">
             <span className="font-medium">
               Through our affiliation with Virtuoso and direct relationships with the world's
@@ -370,37 +401,30 @@ const Index = () => {
           </p>
         </Reveal>
 
-        <Reveal delay={180} className="w-full">
+        <Reveal className="w-full">
           <div className="mx-auto w-full max-w-[700px] p-[10px]">
             <HexagonGallery images={partnerLogos} />
           </div>
         </Reveal>
       </Section>
 
-      {/* Testimonials intro — 567px panel pinned right */}
+      {/* Testimonials intro — photograph under a 26% black multiply, panel pinned right */}
       <Section
-        className="min-h-[566px] overflow-hidden bg-black px-[10px]"
+        className="min-h-[566px] overflow-hidden bg-black bg-cover bg-center bg-no-repeat px-[10px]"
+        style={{ backgroundImage: "url(/assets/woman-sea-view.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.26} />}
         innerWidth={810}
-        innerClassName="relative min-h-[566px] items-end justify-center py-[10px]"
+        innerClassName="min-h-[566px] items-end justify-center py-[10px]"
       >
-        <img
-          src="/assets/woman-sea-view.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 h-[566px] w-screen left-1/2 -translate-x-1/2 max-w-none object-cover"
-          loading="lazy"
-        />
         <div className="flex w-full flex-col items-start justify-center gap-5 p-[10px] text-white max-md:items-center md:w-[567px]">
-          <Reveal>
+          <Reveal className="flex flex-col gap-5">
             <h2 className="t-display-lg max-md:text-center">Every journey leaves an impression</h2>
-          </Reveal>
-          <Reveal delay={100}>
             <p className="t-body max-md:text-center">
               Here, our travelers share how intentional design transformed their experience, moments
               that became more than memories, and travels that continue to shape how they live and
               connect.
             </p>
-            <p className="t-body mt-4 font-medium max-md:text-center">
+            <p className="t-body font-medium max-md:text-center">
               These reflections are not about destinations, but about what remains long after the
               return. Presence. Joy. Meaning.
             </p>
@@ -411,7 +435,7 @@ const Index = () => {
       {/* In Their Words */}
       <Section className="bg-white" innerClassName="items-center gap-5 pt-[55px]">
         <Reveal className="w-full">
-          <div className="flex flex-col items-center gap-3 p-[10px] text-center">
+          <div className="flex flex-col items-center gap-5 p-[10px] text-center">
             <h2 className="t-display-lg text-foreground max-md:text-[37px]">In Their Words</h2>
             <p className="t-body text-center text-foreground">
               Each journey leaves an imprint. These voices offer a glimpse into the experiences,
@@ -425,28 +449,25 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Closing statement — content pinned to the bottom of an 833px band */}
+      {/* Closing statement — white gradient fading the photograph from the top */}
       <Section
-        className="min-h-[833px] items-end overflow-hidden bg-white py-[55px]"
+        className="min-h-[833px] overflow-hidden bg-white bg-cover bg-center bg-no-repeat px-[10px]"
+        style={{ backgroundImage: "url(/assets/landscape-panorama.jpg)" }}
+        overlay={
+          <Overlay
+            gradient="linear-gradient(180deg,#FFFFFF 11%,#FFFFFF00 26%)"
+            opacity={1}
+          />
+        }
         innerWidth={864}
-        innerClassName="relative min-h-[723px] items-center justify-end gap-5 p-[10px] text-center"
+        innerClassName="min-h-[833px] items-center justify-end gap-5 py-[55px] text-center"
       >
-        <img
-          src="/assets/landscape-panorama.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 left-1/2 h-full w-screen max-w-none -translate-x-1/2 object-cover"
-          loading="lazy"
-        />
-        {/* White fade across the top quarter, as in the Elementor gradient overlay */}
-        <div className="absolute inset-0 -z-10 left-1/2 w-screen max-w-none -translate-x-1/2 bg-[linear-gradient(180deg,#FFFFFF_11%,#FFFFFF00_26%)]" />
-
         <Reveal>
           <h2 className="px-[10px] py-[10px] font-display text-[44px] font-normal italic leading-[1.1em] text-[#333] max-md:text-[35px]">
             This is travel, <WordRotator words={closingWords} />
           </h2>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal>
           <p className="t-body max-w-[335px] text-center text-white">
             We don't just plan your travel.
             <br />
@@ -456,10 +477,9 @@ const Index = () => {
             <br />
             You return more of yourself.
           </p>
-          <Link
-            to="/contact?subject=Request%20a%20Private%20Consultation"
-            className="btn-primary mt-5"
-          >
+        </Reveal>
+        <Reveal animation="zoomIn">
+          <Link to="/contact?subject=Request%20a%20Private%20Consultation" className="btn-light">
             Request a Private Consultation
           </Link>
         </Reveal>

@@ -151,7 +151,7 @@ const PrivateRetreats = () => {
             These alliances allow us to deliver experiences that are as seamless as they are
             extraordinary, designed for those who expect nothing less than the exceptional.
           </p>
-          <Link to="/contact?subject=Private%20Retreat" className="btn-primary">
+          <Link to="/contact?subject=Private%20Retreat" className="btn-dark">
             Design My Retreat
           </Link>
         </Reveal>
@@ -177,9 +177,9 @@ const PrivateRetreats = () => {
               <br />
               Includes:
             </p>
-            <ul className="flex flex-col">
+            <ul className="e-list">
               {deliverables.map((item) => (
-                <li key={item} className="t-body text-taupe">
+                <li key={item} className="t-body text-ink">
                   {item}
                 </li>
               ))}
@@ -190,7 +190,7 @@ const PrivateRetreats = () => {
             </p>
             <Link
               to="/contact?subject=Private%20Retreat"
-              className="btn-primary self-start max-md:self-center"
+              className="btn-dark self-start max-md:self-center"
             >
               Discover What's Possible
             </Link>
@@ -229,7 +229,7 @@ const PrivateRetreats = () => {
             </p>
             <Link
               to="/contact?subject=Private%20Retreat"
-              className="btn-primary self-start max-md:self-center"
+              className="btn-light self-start max-md:self-center"
             >
               Let's Begin
             </Link>
@@ -256,9 +256,9 @@ const PrivateRetreats = () => {
               <br />
               It's ideal for:
             </p>
-            <ul className="flex flex-col">
+            <ul className="e-list">
               {audience.map((item) => (
-                <li key={item} className="t-body text-taupe">
+                <li key={item} className="t-body text-ink">
                   {item}
                 </li>
               ))}
@@ -269,7 +269,7 @@ const PrivateRetreats = () => {
             </p>
             <Link
               to="/contact?subject=Private%20Retreat"
-              className="btn-primary self-start max-md:self-center"
+              className="btn-dark self-start max-md:self-center"
             >
               Start Planning Your Retreat
             </Link>
@@ -317,7 +317,7 @@ const PrivateRetreats = () => {
             Because when a retreat is designed with care, it doesn't end when it's over. It lives
             on, in stories, in memories, and in how people return home.
           </p>
-          <Link to="/contact?subject=Private%20Retreat" className="btn-primary">
+          <Link to="/contact?subject=Private%20Retreat" className="btn-light">
             Start Planning Your Retreat
           </Link>
         </Reveal>

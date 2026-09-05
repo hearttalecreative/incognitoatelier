@@ -76,7 +76,7 @@ const InsideAtelier = () => {
             </p>
           </Reveal>
           <Reveal delay={200}>
-            <Link to="/contact?subject=Plan%20a%20Trip" className="btn-primary self-start max-md:self-center">
+            <Link to="/contact?subject=Plan%20a%20Trip" className="btn-dark self-start max-md:self-center">
               Start Designing With Us
             </Link>
           </Reveal>
@@ -225,7 +225,7 @@ const InsideAtelier = () => {
               It's how we design experiences that move beyond indulgence, into the art of living
               well.
             </p>
-            <Link to="/contact?subject=Plan%20a%20Trip" className="btn-primary">
+            <Link to="/contact?subject=Plan%20a%20Trip" className="btn-dark">
               Discover What's Possible
             </Link>
           </div>
@@ -279,7 +279,7 @@ const InsideAtelier = () => {
               guest, but as part of a curated circle of global citizens who value quality,
               connection, and meaning.
             </p>
-            <Link to="/#partners" className="btn-primary mt-5">
+            <Link to="/#partners" className="btn-light mt-5">
               See Our Partners
             </Link>
           </Reveal>
@@ -325,7 +325,7 @@ const InsideAtelier = () => {
             </p>
             <Link
               to="/contact?subject=Connect%20With%20Valentina"
-              className="btn-primary mt-5"
+              className="btn-dark mt-5"
             >
               Connect with Valentina
             </Link>

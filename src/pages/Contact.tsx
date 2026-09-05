@@ -138,7 +138,7 @@ const InquiryForm = () => {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-[5px] bg-[#E6AF90] px-6 py-3 font-sans text-[15px] font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="btn-solid-copper rounded-[5px] px-6 py-3 disabled:opacity-50"
       >
         {status === "sending" ? "Sending…" : "Send Inquiry"}
       </button>

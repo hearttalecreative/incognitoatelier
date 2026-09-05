@@ -201,8 +201,10 @@
 }
 
 /*
-  Buttons. Elementor renders both variants at 12px/24px padding with a 3px
-  radius; only the fill and label size differ.
+  Buttons. Every call to action on the site is an outline button: transparent
+  fill, a 1px rule, an uppercase Montserrat label, 12px/24px padding and a 3px
+  radius. Only the rule colour and the label size change — dark on light
+  backgrounds, white over photography and video.
 */
 @layer components {
   .btn {
@@ -213,44 +215,75 @@
     border-radius: 3px;
     border-width: 1px;
     border-style: solid;
+    background-color: transparent;
     font-family: Montserrat, sans-serif;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 1;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
-  /* Copper fill, white label — the default call to action */
-  .btn-primary {
-    @apply btn border-copper bg-copper text-white text-[12px];
+  /* On light backgrounds */
+  .btn-dark {
+    @apply btn border-ink text-ink;
   }
 
-  .btn-primary:hover {
-    @apply bg-transparent text-copper;
+  .btn-dark:hover {
+    @apply bg-ink text-white;
   }
 
-  /* Same copper fill at the larger label size used for section-level choices */
-  .btn-primary-lg {
-    @apply btn border-copper bg-copper text-white text-[14px];
+  /* Over photography, video and the dark bands */
+  .btn-light {
+    @apply btn border-white text-white;
   }
 
-  .btn-primary-lg:hover {
-    @apply bg-transparent text-copper;
+  .btn-light:hover {
+    @apply bg-white text-ink;
   }
 
-  /* Cream fill, copper label — used over dark imagery in the hero */
-  .btn-cream {
-    @apply btn border-cream bg-cream text-copper text-[14px];
+  /* The hero and the four offering links use the 14px label */
+  .btn-lg {
+    font-size: 14px;
   }
 
-  .btn-cream:hover {
-    @apply bg-transparent text-cream;
+  /* Solid fills, used only by the two forms */
+  .btn-solid-ink {
+    @apply btn border-ink bg-ink text-white;
+    font-size: 15px;
+    text-transform: none;
   }
 
-  @media (max-width: 767px) {
-    .btn-primary {
-      font-size: 13px;
-    }
+  .btn-solid-copper {
+    @apply btn border-copper bg-copper text-white;
+    font-size: 15px;
+    text-transform: none;
+  }
+}
+
+/*
+  Elementor icon-lists: a 4px taupe dot inside a 9px slot, with the label in
+  ink at body size. Rows sit on the line-height alone, with no extra spacing.
+*/
+@layer components {
+  .e-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .e-list > li {
+    display: flex;
+    align-items: center;
+  }
+
+  .e-list > li::before {
+    content: "";
+    flex: none;
+    width: 4px;
+    height: 4px;
+    margin-right: 5px;
+    border-radius: 9999px;
+    background-color: hsl(var(--taupe));
   }
 }
 

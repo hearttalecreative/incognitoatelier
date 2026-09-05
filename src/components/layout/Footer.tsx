@@ -65,7 +65,7 @@ const Newsletter = () => {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="rounded-[5px] bg-copper px-4 py-4 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="btn-solid-ink rounded-[5px] px-4 py-4 disabled:opacity-50"
           >
             {status === "sending" ? "Joining…" : "Join the circle"}
           </button>

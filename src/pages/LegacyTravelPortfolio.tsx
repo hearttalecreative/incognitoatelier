@@ -214,7 +214,7 @@ const LegacyTravelPortfolio = () => {
 
         <Reveal delay={200}>
           <div className="flex items-center justify-center p-[10px]">
-            <Link to="/contact?subject=Legacy%20Portfolio" className="btn-primary">
+            <Link to="/contact?subject=Legacy%20Portfolio" className="btn-dark">
               Let's Begin Your Legacy Portfolio
             </Link>
           </div>
@@ -244,9 +244,9 @@ const LegacyTravelPortfolio = () => {
           </Reveal>
           <Reveal delay={160} className="flex flex-col gap-5">
             <p className="t-body font-semibold text-ink">Highlights:</p>
-            <ul className="flex flex-col">
+            <ul className="e-list">
               {highlights.map((item) => (
-                <li key={item} className="t-body text-foreground">
+                <li key={item} className="t-body text-ink">
                   {item}
                 </li>
               ))}
@@ -316,7 +316,7 @@ const LegacyTravelPortfolio = () => {
           </p>
           <ul className="mt-4 flex flex-col">
             {idealFor.map((item) => (
-              <li key={item} className="t-body text-foreground">
+              <li key={item} className="t-body text-ink">
                 {item}
               </li>
             ))}
@@ -325,7 +325,7 @@ const LegacyTravelPortfolio = () => {
             This is for those who no longer want to plan; they want to be known.
           </p>
           <div className="mt-5 flex justify-center max-md:justify-start">
-            <Link to="/contact?subject=Legacy%20Portfolio" className="btn-primary">
+            <Link to="/contact?subject=Legacy%20Portfolio" className="btn-dark">
               Let's Begin Your Legacy Portfolio
             </Link>
           </div>

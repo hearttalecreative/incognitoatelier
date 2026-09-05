@@ -7,6 +7,14 @@ type SectionProps = {
   /* Outer band: full-bleed background, min-height, horizontal padding. */
   className?: string;
   style?: CSSProperties;
+  /*
+    Full-bleed layer rendered behind the boxed content — video, slideshow or
+    photograph. It must be a sibling of the inner wrapper, never a child, or it
+    would be clipped to the boxed width.
+  */
+  background?: ReactNode;
+  /* One or more <Overlay> layers, drawn between the background and the content. */
+  overlay?: ReactNode;
   /* Boxed inner wrapper — Elementor's .e-con-inner. */
   innerClassName?: string;
   /* Max width of the boxed inner wrapper, in pixels. */
@@ -22,12 +30,17 @@ export const Section = ({
   id,
   className,
   style,
+  background,
+  overlay,
   innerClassName,
   innerWidth = 1140,
 }: SectionProps) => (
-  <section id={id} className={cn("relative w-full", className)} style={style}>
+  <section className={cn("relative w-full", className)} style={style}>
+    {background}
+    {overlay}
     <div
-      className={cn("mx-auto flex w-full flex-col", innerClassName)}
+      id={id}
+      className={cn("relative mx-auto flex w-full flex-col", innerClassName)}
       style={{ maxWidth: innerWidth }}
     >
       {children}

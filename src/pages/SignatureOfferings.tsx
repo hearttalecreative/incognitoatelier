@@ -19,7 +19,7 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 
 /* Elementor icon-lists set no spacing between rows; line-height alone separates them. */
 const List = ({ items, light = false }: { items: string[]; light?: boolean }) => (
-  <ul className={`flex flex-col ${light ? "text-white" : "text-foreground"}`}>
+  <ul className={`e-list ${light ? "text-white" : "text-ink"}`}>
     {items.map((item) => (
       <li key={item} className="t-body">
         {item}
@@ -80,7 +80,7 @@ const SignatureOfferings = () => {
           <div className="flex max-w-[716px] flex-wrap items-center justify-center gap-3 p-[10px]">
             {offeringLinks.map((link, index) => (
               <Reveal key={link.href} animation="zoomIn" delay={index === 0 ? 0 : index === 1 ? 300 : 600}>
-                <a href={link.href} className="btn-primary-lg">
+                <a href={link.href} className="btn-dark btn-lg">
                   {link.label}
                 </a>
               </Reveal>
@@ -141,7 +141,7 @@ const SignatureOfferings = () => {
             <List items={hotelPerks} light />
           </Reveal>
           <Reveal delay={280}>
-            <Link to="/contact?subject=Hotel%20Only%20Booking" className="btn-primary">
+            <Link to="/contact?subject=Hotel%20Only%20Booking" className="btn-light">
               Book Your Hotel | Access Code: INCOGNITOVIP
             </Link>
           </Reveal>
@@ -184,10 +184,10 @@ const SignatureOfferings = () => {
               This is travel as legacy, crafted with continuity, meaning, and mastery.
             </p>
             <div className="mt-3 flex flex-wrap gap-3">
-              <Link to="/legacy-travel-portfolio" className="btn-primary">
+              <Link to="/legacy-travel-portfolio" className="btn-dark">
                 Find Out More About the Legacy Portfolio
               </Link>
-              <Link to="/contact?subject=Legacy%20Portfolio" className="btn-primary">
+              <Link to="/contact?subject=Legacy%20Portfolio" className="btn-dark">
                 Start My Legacy Portfolio
               </Link>
             </div>
@@ -247,7 +247,7 @@ const SignatureOfferings = () => {
             <p className="t-body font-semibold text-foreground">
               Every experience begins with intention. Let's design yours.
             </p>
-            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-primary">
+            <Link to="/contact?subject=Plan%20my%20Journey" className="btn-dark">
               Plan My Journey
             </Link>
           </div>
@@ -288,7 +288,7 @@ const SignatureOfferings = () => {
             <List items={bespokeIncludes} light />
           </Reveal>
           <Reveal delay={220}>
-            <Link to="/contact?subject=Bespoke%20Journey" className="btn-primary self-start max-md:self-center">
+            <Link to="/contact?subject=Bespoke%20Journey" className="btn-light self-start max-md:self-center">
               Design My Bespoke Journey
             </Link>
           </Reveal>
@@ -342,7 +342,7 @@ const SignatureOfferings = () => {
             <p className="t-body font-semibold text-white">
               Guests don't just attend. They exhale. They connect. They remember.
             </p>
-            <Link to="/contact?subject=Private%20Retreat" className="btn-primary mt-3">
+            <Link to="/contact?subject=Private%20Retreat" className="btn-light mt-3">
               Start Planning Your Retreat
             </Link>
           </Reveal>
@@ -377,7 +377,7 @@ const SignatureOfferings = () => {
             At Incognito Atelier, we design it with the same care and consciousness you give to
             everything else you love.
           </p>
-          <Link to="/contact?subject=Plan%20a%20Trip" className="btn-primary mt-5">
+          <Link to="/contact?subject=Plan%20a%20Trip" className="btn-dark mt-5">
             Let's Begin
           </Link>
         </Reveal>

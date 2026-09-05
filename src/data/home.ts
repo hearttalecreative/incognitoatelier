@@ -66,6 +66,12 @@ export const testimonials = [
   },
 ];
 
+const homeSlide = (n: number) => `/assets/home-slide-${String(n).padStart(2, "0")}.jpg`;
+
+/* Background slideshows, in the order Elementor stores each gallery. */
+export const luxurySlideshow = [6, 7, 5, 11, 10].map(homeSlide);
+export const clientsSlideshow = [8, 2, 4, 3, 9, 1].map(homeSlide);
+
 /*
   The 20 partner marks, in the order the honeycomb lays them out on the live
   site (four per row, five rows).
