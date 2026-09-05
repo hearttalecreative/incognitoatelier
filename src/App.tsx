@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
+import PageTransition from "./components/layout/page-transition";
 import Index from "./pages/Index";
 import InsideAtelier from "./pages/InsideAtelier";
 import SignatureOfferings from "./pages/SignatureOfferings";
@@ -38,6 +39,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <ScrollToTop />
+      <PageTransition />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/inside-incognito-atelier" element={<InsideAtelier />} />

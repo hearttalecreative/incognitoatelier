@@ -28,19 +28,19 @@ const InsideAtelier = () => {
             Inside Incognito Atelier
           </h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal animation="fadeInUp">
           <p className="font-serif text-[22px] font-normal italic leading-[1.2em] max-md:text-[16px]">
             You've chosen the destination. We curate how you return.
           </p>
         </Reveal>
-        <Reveal delay={240}>
+        <Reveal>
           <p className="font-sans text-[15px] font-normal leading-[1.3em] max-md:text-[12px]">
             Every journey begins with a reason. We design experiences that redefine how you return
             home. Our work begins with that reason, designing experiences that transform the way you
             return home.
           </p>
         </Reveal>
-        <Reveal delay={360}>
+        <Reveal animation="fadeInDown">
           <ChevronDown strokeWidth={1} className="h-[26px] w-[26px]" />
         </Reveal>
       </Section>
@@ -115,7 +115,7 @@ const InsideAtelier = () => {
 
         <div className="flex w-full items-stretch justify-center gap-5 p-[10px] max-md:flex-col">
           {journeyTypes.map((journey, index) => (
-            <Reveal key={journey.label} delay={index * 70} className="flex-1">
+            <Reveal key={journey.label} delay={index * 200} className="flex-1">
               <div
                 className="relative flex min-h-[300px] flex-col justify-end border border-cream bg-cover bg-center p-4"
                 style={{ backgroundImage: `url(${journey.image})` }}
@@ -192,7 +192,7 @@ const InsideAtelier = () => {
 
         <div className="flex w-full items-stretch justify-center gap-5 p-[10px] max-md:flex-col">
           {velaSteps.map((step, index) => (
-            <Reveal key={step.letter} delay={index * 80} className="flex-1">
+            <Reveal key={step.letter} animation="zoomIn" delay={index * 200} className="flex-1">
               <div className="flex h-full flex-col p-[25px] max-md:items-center">
                 <div className="flex items-center gap-0 max-lg:flex-col max-lg:items-start max-md:items-center">
                   <span className="font-display text-[105px] font-light uppercase leading-[1.1em] text-foreground max-lg:text-[90px] max-md:text-[95px]">

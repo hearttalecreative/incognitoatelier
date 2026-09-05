@@ -50,12 +50,12 @@ const PrivateRetreats = () => {
             Corporate & Private Retreats
           </h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal animation="fadeInUp">
           <p className="font-serif text-[22px] font-normal italic leading-[1.2em] max-md:text-[16px]">
             Luxury, intention, and connection, curated into one seamless experience.
           </p>
         </Reveal>
-        <Reveal delay={240}>
+        <Reveal>
           <p className="font-sans text-[15px] font-normal leading-[1.3em] max-md:text-[12px]">
             For leaders, founders, families, and visionaries who wish to gather their people with
             purpose, Incognito Atelier designs retreats that feel effortless, elevated, and
@@ -64,7 +64,7 @@ const PrivateRetreats = () => {
             with something that stays.
           </p>
         </Reveal>
-        <Reveal delay={360}>
+        <Reveal animation="fadeInDown">
           <ChevronDown strokeWidth={1} className="h-[26px] w-[26px]" />
         </Reveal>
       </Section>
@@ -287,7 +287,7 @@ const PrivateRetreats = () => {
         innerWidth={1000}
         innerClassName="items-center justify-center pt-[75px]"
       >
-        <Reveal>
+        <Reveal animation="fadeInDown">
           <p className="-mt-[13px] text-center font-serif text-[25px] font-light italic leading-[1.3em] text-copper max-md:text-[20px]">
             It's not about how much you do, it's about how it feels.
           </p>

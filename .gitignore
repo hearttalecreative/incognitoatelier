@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # Raw scrape of the legacy WordPress site, kept locally as a reference only
 _extract/
+
+# Elementor kit export, kept locally as a reference
+Incognito.zip

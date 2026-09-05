@@ -200,7 +200,7 @@ const Index = () => {
 
         <div className="flex w-full items-stretch justify-center gap-5 p-[10px] max-lg:gap-[5px] max-md:flex-col max-md:gap-[25px]">
           {pillars.map((pillar, index) => (
-            <Reveal key={pillar.title} delay={index * 80} className="flex-1">
+            <Reveal key={pillar.title} delay={index * 200} className="flex-1">
               <div className="flex h-full flex-col items-center gap-5 p-[25px]">
                 <h3 className="t-display-sm w-full text-left text-foreground max-md:text-center">
                   {pillar.title}

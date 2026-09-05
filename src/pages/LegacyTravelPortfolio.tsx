@@ -66,12 +66,12 @@ const LegacyTravelPortfolio = () => {
             Legacy Travel Portfolio
           </h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal animation="fadeInUp">
           <p className="font-serif text-[22px] font-normal italic leading-[1.2em] max-md:text-[16px]">
             Luxury travel designed to evolve with you.
           </p>
         </Reveal>
-        <Reveal delay={240}>
+        <Reveal>
           <p className="font-sans text-[15px] font-normal leading-[1.3em] max-md:text-[12px]">
             The Legacy Travel Portfolio is a private, long-term partnership for discerning travelers
             who see every journey as part of a greater story, their own. This is not a single trip.
@@ -79,7 +79,7 @@ const LegacyTravelPortfolio = () => {
             and your season of life.
           </p>
         </Reveal>
-        <Reveal delay={360}>
+        <Reveal animation="fadeInDown">
           <ChevronDown strokeWidth={1} className="h-[26px] w-[26px]" />
         </Reveal>
       </Section>
@@ -198,7 +198,7 @@ const LegacyTravelPortfolio = () => {
 
         <div className="flex w-full items-stretch justify-center gap-5 p-[10px] max-md:flex-col">
           {processSteps.map((step, index) => (
-            <Reveal key={step.number} delay={index * 80} className="flex-1">
+            <Reveal key={step.number} delay={200 + index * 200} className="flex-1">
               <div className="flex h-full flex-col p-[25px] max-md:items-center">
                 <span className="-mt-[44px] font-display text-[119px] font-light italic leading-[1.1em] text-copper max-lg:-mt-[34px] max-lg:text-[80px] max-md:text-[70px]">
                   {step.number}

@@ -49,19 +49,19 @@ const SignatureOfferings = () => {
             Our Signature Offerings
           </h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal animation="fadeInUp">
           <p className="font-serif text-[22px] font-normal italic leading-[1.2em] max-md:text-[16px]">
             Luxury travel reimagined through design, intention, and continuity.
           </p>
         </Reveal>
-        <Reveal delay={240}>
+        <Reveal>
           <p className="font-sans text-[15px] font-normal leading-[1.3em] max-md:text-[12px]">
             Every journey we create is personal, an expression of who you are and how you wish to
             experience the world. Through a deeply tailored process, we design travel that reflects
             your rhythm, your season of life, and your evolving definition of luxury.
           </p>
         </Reveal>
-        <Reveal delay={360}>
+        <Reveal animation="fadeInDown">
           <ChevronDown strokeWidth={1} className="h-[26px] w-[26px]" />
         </Reveal>
       </Section>
@@ -78,10 +78,12 @@ const SignatureOfferings = () => {
 
         <Reveal delay={120}>
           <div className="flex max-w-[716px] flex-wrap items-center justify-center gap-3 p-[10px]">
-            {offeringLinks.map((link) => (
-              <a key={link.href} href={link.href} className="btn-primary-lg">
-                {link.label}
-              </a>
+            {offeringLinks.map((link, index) => (
+              <Reveal key={link.href} animation="zoomIn" delay={index === 0 ? 0 : index === 1 ? 300 : 600}>
+                <a href={link.href} className="btn-primary-lg">
+                  {link.label}
+                </a>
+              </Reveal>
             ))}
           </div>
         </Reveal>
@@ -222,7 +224,7 @@ const SignatureOfferings = () => {
 
         <div className="grid w-full gap-5 p-[10px] md:grid-cols-2">
           {experienceCategories.map((category, index) => (
-            <Reveal key={category.title} delay={index * 70}>
+            <Reveal key={category.title} delay={index * 200}>
               <div className="flex h-full flex-col gap-[15px] p-[35px] max-md:p-5">
                 {/*
                   The source card carries an image widget that the live desktop

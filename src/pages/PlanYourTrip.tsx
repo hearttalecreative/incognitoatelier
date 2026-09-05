@@ -1,22 +1,18 @@
 import Layout from "@/components/layout/Layout";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
-/* TODO: port the full Plan Your Trip layout from the WordPress source. */
+/*
+  The WordPress page at /plan-your-trip/ has no content of its own: it renders
+  the header, newsletter band and footer only. Kept as-is so the route resolves
+  the same way; the working entry point for enquiries is /contact.
+*/
 const PlanYourTrip = () => {
   usePageMeta({
     title: "Plan Your Trip | Incognito Atelier",
-    description: "Plan Your Trip at Incognito Atelier.",
+    description: "Begin planning a bespoke journey with Incognito Atelier.",
   });
 
-  return (
-    <Layout transparentHeader={false}>
-      <section className="section-padding">
-        <div className="mx-auto w-[95%] max-w-[1140px]">
-          <h1 className="font-display text-5xl font-light text-ink">Plan Your Trip</h1>
-        </div>
-      </section>
-    </Layout>
-  );
+  return <Layout transparentHeader={false}>{null}</Layout>;
 };
 
 export default PlanYourTrip;
