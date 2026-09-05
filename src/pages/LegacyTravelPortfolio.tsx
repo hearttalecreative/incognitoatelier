@@ -108,20 +108,20 @@ const LegacyTravelPortfolio = () => {
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <div className="flex flex-col gap-5 p-[10px]">
-            <p className="t-body text-center text-white">
+        <Reveal delay={120} className="w-full">
+          <div className="flex w-full justify-between gap-5 px-[35px] py-[10px] max-md:flex-col max-md:px-[10px]">
+            <p className="t-body w-[309px] shrink-0 text-center text-white max-md:w-auto">
               Through our Blueprint Process, we develop a personalized portfolio that maps your
               travel identity across destinations, experiences, and aspirations. It's a living
               document that evolves with you, capturing the essence of where you've been, what
               you've loved, and where you're heading next.
             </p>
-            <p className="t-body text-center text-white">
+            <p className="t-body w-[309px] shrink-0 text-center text-white max-md:w-auto">
               This framework allows us to design future experiences with even greater precision and
               emotional resonance. Each itinerary becomes a continuation of your legacy, consistent
               in tone, elevated in quality, and deeply personal.
             </p>
-            <p className="t-body text-center text-white">
+            <p className="t-body w-[309px] shrink-0 text-center text-white max-md:w-auto">
               For our long-term clients, this portfolio also integrates exclusive access to our
               global network of partners, bespoke recommendations, and annual strategy consultations
               for upcoming travel seasons. Luxury becomes effortless when your journey is not
@@ -144,15 +144,15 @@ const LegacyTravelPortfolio = () => {
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <div className="flex flex-col gap-5 p-[10px]">
+        <Reveal delay={120} className="w-full">
+          <div className="flex justify-between gap-5 p-[10px] max-md:flex-col">
             <p className="t-body max-w-[412px] text-right text-foreground max-md:max-w-none max-md:text-center">
               We believe travel is more than a moment; it's a mirror of who you are and what you
               value most. The Legacy Travel Portfolio was created to honor that
               philosophy—transforming travel from a series of trips into a curated collection of
               meaningful experiences that tell the story of your life.
             </p>
-            <p className="t-body text-foreground max-md:text-center">
+            <p className="t-body max-w-[412px] text-foreground max-md:max-w-none max-md:text-center">
               This partnership allows us to curate, manage, and evolve your travel year after year
               with the precision of an art collection. Each journey is a new acquisition,
               thoughtfully chosen, intentionally designed, and seamlessly integrated into your
@@ -185,11 +185,11 @@ const LegacyTravelPortfolio = () => {
         innerClassName="items-center gap-5"
       >
         <Reveal className="w-full max-w-[841px]">
-          <div className="flex flex-col p-[10px] max-md:items-center">
-            <h2 className="font-display text-[46px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[40px]">
+          <div className="flex flex-col items-center p-[10px]">
+            <h2 className="font-display text-[46px] font-light leading-[1.1em] text-foreground max-md:text-[40px]">
               How It Works
             </h2>
-            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-center max-md:text-[21px]">
+            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-[21px]">
               The Legacy Process
             </p>
             <p className="t-body mt-5 text-center text-foreground">
@@ -311,7 +311,7 @@ const LegacyTravelPortfolio = () => {
       <Section
         className="min-h-[357px] bg-white pb-[55px] pt-[65px]"
         innerWidth={841}
-        innerClassName="gap-4 p-[10px] max-md:items-center"
+        innerClassName="items-center gap-4 p-[10px]"
       >
         <Reveal>
           <p className="font-display text-[27px] font-light italic leading-[1.5em] text-ink max-md:text-[22px]">
@@ -324,10 +324,10 @@ const LegacyTravelPortfolio = () => {
               </li>
             ))}
           </ul>
-          <p className="t-body mt-4 text-center font-semibold text-foreground max-md:text-left">
+          <p className="t-body mt-4 text-center font-semibold text-foreground">
             This is for those who no longer want to plan; they want to be known.
           </p>
-          <div className="mt-5 flex justify-center max-md:justify-start">
+          <div className="mt-5 flex justify-center">
             <Link to="/contact?subject=Legacy%20Portfolio" className="btn-dark">
               Let's Begin Your Legacy Portfolio
             </Link>

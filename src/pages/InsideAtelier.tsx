@@ -148,19 +148,19 @@ const InsideAtelier = () => {
         id="work"
         className="min-h-[357px] bg-copper pb-5 pt-[55px]"
         innerWidth={1008}
-        innerClassName="items-center justify-center gap-4 p-[10px] text-center text-white"
+        innerClassName="items-center justify-center gap-4 p-[10px] text-white"
       >
         <Reveal>
           <h2 className="t-display-lg max-md:text-[34px]">How We Work</h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="font-display text-[23px] font-light italic leading-[1.1em] max-md:text-[22px]">
+          <p className="max-w-[694px] text-center font-display text-[23px] font-light italic leading-[1.1em] max-md:text-[22px]">
             We don't ask where you want to go, we ask why you're going. We create one-of-a-kind
             journeys that bring you back to what matters.
           </p>
         </Reveal>
-        <Reveal delay={160}>
-          <p className="t-body mb-[25px] font-medium">
+        <Reveal delay={160} className="items-center">
+          <p className="t-body mb-[25px] max-w-[622px] text-center font-medium">
             Your travel shouldn't just only be beautiful; it should buy back your time, restore your
             energy, and expand your legacy.
           </p>
@@ -308,7 +308,7 @@ const InsideAtelier = () => {
         }
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex items-start w-full flex-col gap-4 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex w-full flex-col gap-4 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal>
             <h2 className="t-display-lg text-foreground max-md:text-center max-md:text-[41px]">
               Meet Valentina

@@ -38,7 +38,7 @@ const Newsletter = () => {
         repeat="repeat"
         size="20% auto"
       />
-      <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center px-[10px]">
+      <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center max-md:px-[10px]">
         <p className="mb-[23px] font-serif text-[14px] font-medium uppercase tracking-normal text-cream">
           newsletter
         </p>
@@ -137,7 +137,7 @@ export const Footer = () => (
     </div>
 
     <div className="bg-[#383838] py-4">
-      <p className="mx-auto max-w-[560px] text-center font-sans text-[11px] font-medium leading-[11px] text-[#DFDFDF] max-md:leading-[1.2em]">
+      <p className="mx-auto max-w-[529px] text-center font-sans text-[11px] font-medium leading-[11px] text-[#DFDFDF] max-md:leading-[1.2em]">
         Copyright {new Date().getFullYear()} Incognito Atelier. All Rights Reserved. &nbsp;|&nbsp;
         Developed with ♥ by{" "}
         <a

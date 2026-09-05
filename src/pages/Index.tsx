@@ -154,7 +154,7 @@ const Index = () => {
         }
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex items-start w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal animation="fadeInLeft" className="flex flex-col items-start gap-5">
             <h2 className="t-display-lg text-foreground max-md:text-center">
               Designed for a Different Kind of Luxury
@@ -262,7 +262,7 @@ const Index = () => {
         }
         innerClassName="min-h-[144px] items-end py-[10px]"
       >
-        <div className="flex items-start w-full flex-col gap-5 p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
+        <div className="flex w-full flex-col gap-5 p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
           <Reveal animation="fadeInRight" className="flex flex-col items-start gap-5">
             <h2 className="t-display-lg max-md:text-center">The Experience</h2>
             <p className="t-body max-md:text-center">
@@ -297,7 +297,7 @@ const Index = () => {
         className="bg-white"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex items-start w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
               Designed for those who understand that true luxury is found in time, presence, and

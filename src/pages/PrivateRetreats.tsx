@@ -174,7 +174,7 @@ const PrivateRetreats = () => {
         className="bg-white"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex items-start w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[40px] font-light leading-[1.1em] text-foreground max-md:text-center">
               What We Deliver.
@@ -255,7 +255,7 @@ const PrivateRetreats = () => {
         className="bg-cream"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex items-start w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[40px] font-light leading-[1.1em] text-foreground max-md:text-center">
               Who It's For

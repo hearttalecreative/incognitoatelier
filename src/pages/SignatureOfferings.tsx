@@ -79,7 +79,7 @@ const SignatureOfferings = () => {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="flex max-w-[716px] flex-wrap items-center justify-center gap-3 p-[10px]">
+          <div className="flex max-w-[716px] flex-wrap items-center justify-center gap-[40px] p-[10px]">
             {offeringLinks.map((link, index) => (
               <Reveal key={link.href} animation="zoomIn" delay={index === 0 ? 0 : index === 1 ? 300 : 600}>
                 <a href={link.href} className="btn-dark btn-lg w-[139px]">
@@ -212,11 +212,11 @@ const SignatureOfferings = () => {
         innerClassName="items-center gap-5"
       >
         <Reveal className="w-full max-w-[841px]">
-          <div className="flex flex-col gap-5 p-[10px] max-md:items-center">
-            <h2 className="font-display text-[46px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[34px]">
+          <div className="flex flex-col items-center gap-5 p-[10px]">
+            <h2 className="font-display text-[46px] font-light leading-[1.1em] text-foreground max-md:text-[34px]">
               Experiences & Services
             </h2>
-            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-center max-md:text-[19px]">
+            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-[19px]">
               A curation of exceptional travel experiences designed around your life.
             </p>
             <p className="t-body text-center text-foreground">
@@ -230,7 +230,7 @@ const SignatureOfferings = () => {
         <div className="grid w-full gap-5 p-[10px] md:grid-cols-2">
           {experienceCategories.map((category, index) => (
             <Reveal key={category.title} delay={index * 200}>
-              <div className="flex h-full flex-col gap-[15px] p-[35px] max-md:p-5">
+              <div className="flex h-full flex-col items-start gap-[15px] p-[35px] max-md:p-5">
                 <img
                   src={category.image}
                   alt=""
