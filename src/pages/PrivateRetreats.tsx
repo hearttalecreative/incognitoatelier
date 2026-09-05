@@ -77,7 +77,7 @@ const PrivateRetreats = () => {
         innerWidth={900}
         innerClassName="min-h-[485px] items-center justify-center gap-5 py-[10px] md:flex-row"
       >
-        <div className="flex items-start w-full flex-col justify-center p-[10px] max-md:items-center md:w-[352px]">
+        <div className="flex w-full flex-col items-start justify-center gap-5 p-[10px] max-md:items-center md:w-[352px]">
           <Reveal>
             <h2 className="-mb-[20px] font-display text-[48px] font-light leading-[1.1em] text-foreground max-md:text-center">
               The

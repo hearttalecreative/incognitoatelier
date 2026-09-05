@@ -214,7 +214,7 @@ const Contact = () => {
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[342px]">
           <Reveal>
-            <div className="flex flex-col items-start justify-center max-md:items-center">
+            <div className="flex flex-col items-start justify-center gap-5 max-md:items-center">
               <h2 className="-mb-[20px] font-display text-[36px] font-light leading-[1.1em] text-white max-md:text-center">
                 The Philosophy of
               </h2>

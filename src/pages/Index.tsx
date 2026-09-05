@@ -342,7 +342,7 @@ const Index = () => {
       >
         <div className="flex items-center justify-start p-[10px] max-md:justify-center md:w-[342px]">
           <Reveal>
-            <div className="flex w-full max-w-[322px] flex-col items-start justify-center max-md:items-center">
+            <div className="flex w-full max-w-[322px] flex-col items-start justify-center gap-5 max-md:items-center">
               <h2 className="t-display-xl italic text-white max-md:text-center">Legacy</h2>
               <h2 className="t-display-lg -mt-[25px] text-white max-md:-mt-[14px] max-md:text-center">
                 Travel Portfolio

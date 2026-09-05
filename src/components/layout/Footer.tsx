@@ -137,7 +137,7 @@ export const Footer = () => (
     </div>
 
     <div className="bg-[#383838] py-4">
-      <p className="text-center font-sans text-[11px] font-medium leading-[11px] text-[#DFDFDF] max-md:leading-[1.2em]">
+      <p className="mx-auto w-fit text-center font-sans text-[11px] font-medium leading-[11px] text-[#DFDFDF] max-md:w-auto max-md:leading-[1.2em]">
         Copyright {new Date().getFullYear()} Incognito Atelier. All Rights Reserved. &nbsp;|&nbsp;
         Developed with ♥ by{" "}
         <a

@@ -54,10 +54,17 @@ export const Header = ({ transparent = false }: HeaderProps) => {
         className={cn(
           "z-50 w-full transition-colors duration-500",
           transparent ? "absolute inset-x-0 top-0" : "relative bg-ink",
-          transparent && scrolled && "fixed bg-ink/90 backdrop-blur-sm"
+          scrolled && "fixed inset-x-0 top-0 bg-ink/95 shadow-[0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm"
         )}
       >
-        <div className="mx-auto flex h-[120px] w-[95%] max-w-[1364px] items-center justify-between gap-0">
+        {/* 120px at rest, compacting to 72px once the page scrolls */}
+        <div
+          className={cn(
+            "mx-auto flex w-[95%] max-w-[1364px] items-center justify-between gap-0",
+            "transition-[height] duration-300 ease-out",
+            scrolled ? "h-[72px]" : "h-[120px]"
+          )}
+        >
           {/* Left cluster: menu trigger, then the first half of the nav */}
           <div className="flex flex-1 items-center justify-start gap-[5px]">
             <button
@@ -82,7 +89,10 @@ export const Header = ({ transparent = false }: HeaderProps) => {
             <img
               src="/assets/logo-monogram-white.svg"
               alt="Incognito Atelier"
-              className="w-[50px]"
+              className={cn(
+                "transition-[width] duration-300 ease-out",
+                scrolled ? "w-[34px]" : "w-[50px]"
+              )}
             />
           </Link>
 

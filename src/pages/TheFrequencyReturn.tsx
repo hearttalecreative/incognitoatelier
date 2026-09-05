@@ -52,7 +52,7 @@ const TheFrequencyReturn = () => {
         {/* Hero */}
         <Section
           className="min-h-[85vh] overflow-hidden bg-black px-[10px]"
-          innerWidth={900}
+          innerWidth={935}
           background={<VimeoBackground videoId="1150089115" poster="/assets/poster-frequency-hero.jpg" />}
           overlay={<Overlay color="#000000" opacity={0.28} />}
           innerClassName="min-h-[85vh] items-center justify-center gap-4 py-16 text-center text-white"
@@ -94,7 +94,7 @@ const TheFrequencyReturn = () => {
           className="min-h-[439px] bg-white"
           innerClassName="min-h-[439px] items-center justify-center gap-5 py-[55px] md:flex-row"
         >
-          <div className="flex items-start w-full flex-col justify-center p-[10px] max-md:items-center md:w-1/2">
+          <div className="flex w-full flex-col items-start justify-center gap-5 py-[10px] pl-[70px] max-md:items-center max-md:px-[10px] md:w-1/2">
             <Reveal>
               <h2 className="font-display text-[66px] font-light italic leading-[1.1em] text-foreground max-md:text-center max-md:text-[42px]">
                 This is More
@@ -105,7 +105,7 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="flex items-start w-full flex-col justify-center gap-5 py-[45px] max-md:px-[10px] md:w-1/2">
+          <div className="flex w-full flex-col items-start justify-center gap-5 py-[45px] pr-[71px] max-md:px-[10px] max-md:pr-[10px] md:w-1/2">
             <Reveal delay={200} className="flex flex-col items-start gap-5">
               <p className="t-body text-foreground">
                 In nine days in Egypt, you release what has been weighing on your body and nervous
@@ -121,7 +121,7 @@ const TheFrequencyReturn = () => {
                   className="w-[124px] shrink-0"
                 />
                 <div className="flex flex-col gap-2">
-                  <p className="font-body text-[16px] leading-[1.4em] text-foreground">
+                  <p className="max-w-[298px] font-body text-[16px] leading-[1.4em] text-foreground">
                     Co-hosted by Michelle Cameron-Coulter
                   </p>
                   <p className="font-body text-[14px] leading-[1.4em] text-foreground">
@@ -456,7 +456,7 @@ const TheFrequencyReturn = () => {
               className="h-[900px] w-full border-0"
               scrolling="no"
             />
-            <p className="text-center font-serif text-[16px] font-normal italic leading-[1.3em] text-foreground">
+            <p className="text-center font-serif text-[16px] font-normal italic leading-[1.2em] text-foreground">
               After you submit, a member of our team will personally review your request and respond
               with the next steps.
             </p>

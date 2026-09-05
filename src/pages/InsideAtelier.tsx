@@ -217,14 +217,14 @@ const InsideAtelier = () => {
         </div>
 
         <Reveal delay={200}>
-          <div className="flex flex-col items-center gap-4 p-[10px] text-center">
+          <div className="flex w-full flex-col items-center gap-4 p-[10px] text-center">
             <h3 className="t-display-lg text-[37px] text-foreground max-md:text-[34px]">
               The Result
             </h3>
             <p className="t-body font-semibold text-foreground max-md:text-[16px]">
               The VELA Method is what sets Incognito Atelier apart.
             </p>
-            <p className="t-body bg-[#F5F1ED] p-[25px] font-medium text-foreground">
+            <p className="t-body w-full bg-[#F5F1ED] p-[25px] font-medium text-foreground">
               It ensures that luxury travel becomes more than a series of beautiful moments; it
               becomes a story told with purpose, grace, and intention.
               <br />
@@ -248,7 +248,7 @@ const InsideAtelier = () => {
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[342px]">
           <Reveal>
-            <div className="flex flex-col items-start justify-center max-md:items-center">
+            <div className="flex flex-col items-start justify-center gap-5 max-md:items-center">
               <h2 className="t-display-lg -mb-[25px] text-white max-md:-mb-[32px] max-md:text-center max-md:text-[36px]">
                 Our Brand
               </h2>
@@ -340,7 +340,7 @@ const InsideAtelier = () => {
             </p>
             <Link
               to="/contact?subject=Connect%20With%20Valentina"
-              className="btn-dark mt-5"
+              className="btn-dark mt-5 self-start max-md:self-center"
             >
               Connect with Valentina
             </Link>

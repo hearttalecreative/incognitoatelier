@@ -115,7 +115,7 @@ const SignatureOfferings = () => {
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[570px]">
           <Reveal>
-            <div className="flex flex-col items-start justify-center">
+            <div className="flex flex-col items-start justify-center gap-5">
               <h2 className="t-display-xl italic text-white">Hotel</h2>
               <h2 className="-mt-[25px] font-display text-[45px] font-light leading-[1.1em] text-white max-md:-mt-[14px] max-md:text-center max-md:text-[32px]">
                 Only-Bookings
