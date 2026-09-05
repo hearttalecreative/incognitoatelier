@@ -96,10 +96,15 @@ const Index = () => {
           <Reveal delay={120}>
             <p className="t-body text-foreground max-md:text-center">
               We are Incognito Atelier, the discreet luxury travel atelier trusted by
-              ultra-high-net-worth families, founders, and visionaries. Our work is not traditional
-              travel planning. It is a refined travel design that protects your most valuable asset,
-              time. We design journeys that are seamless in execution, balanced in pacing, tailored
-              in detail and memorable by design.
+              ultra-high-net-worth families, founders, and visionaries.
+              <br />
+              <br />
+              Our work is not traditional travel planning. It is a refined travel design that
+              protects your most valuable asset, time.
+              <br />
+              <br />
+              We design journeys that are seamless in execution, balanced in pacing, tailored in
+              detail and memorable by design.
             </p>
           </Reveal>
         </div>
@@ -131,11 +136,10 @@ const Index = () => {
           </Reveal>
           <Reveal delay={80}>
             <p className="t-body text-foreground max-md:text-center">
-              In a World That Moves Fast, We Curate the Opposite. Your life moves fast. Your
-              schedule is full. Your roles carry weight.
-            </p>
-            <p className="t-body mt-3 text-foreground max-md:text-center">
-              And yet, what you crave is simple:
+              In a World That Moves Fast, We Curate the Opposite.
+              <br />
+              Your life moves fast. Your schedule is full. Your roles carry weight. And yet, what
+              you crave is simple:
             </p>
           </Reveal>
           <Reveal delay={160}>
@@ -234,14 +238,23 @@ const Index = () => {
           <Reveal delay={100}>
             <p className="t-body max-md:text-center">
               Travel that becomes enduring memories. This is not the joy of display, but of being.
-              It's your son's bare feet in the terracotta dust of a Tuscan courtyard. The sound of
-              your daughter's laughter echoes off the vineyard walls. A toast in Santorini, a
-              spice-laced breeze in Marrakech, silence in Kyoto at dawn. Whether you travel for
-              depth, delight, or rediscovery, we compose more than itineraries. We compose memories
-              with meaning and magnetism. Because joy, when it's embodied, not just documented,
-              becomes lasting memories. We design beyond logistics. Itineraries become experiences
-              that stay with you, long after you return. This is travel that feels considered,
-              human, and lasting.
+              <br />
+              <br />
+              It's your son's bare feet in the terracotta dust of a Tuscan courtyard.
+              <br />
+              The sound of your daughter's laughter echoes off the vineyard walls.
+              <br />
+              A toast in Santorini, a spice-laced breeze in Marrakech, silence in Kyoto at dawn.
+              <br />
+              <br />
+              Whether you travel for depth, delight, or rediscovery, we compose more than
+              itineraries. We compose memories with meaning and magnetism.
+              <br />
+              Because joy, when it's embodied, not just documented, becomes lasting memories.
+              <br />
+              <br />
+              We design beyond logistics. Itineraries become experiences that stay with you, long
+              after you return. This is travel that feels considered, human, and lasting.
             </p>
           </Reveal>
           <Reveal delay={200}>
@@ -266,7 +279,9 @@ const Index = () => {
           </Reveal>
           <Reveal delay={80}>
             <p className="t-body text-foreground max-md:text-center">
-              Designed for the Few Who Understand That Luxury Grounds You. Our clients are:
+              Designed for the Few Who Understand That Luxury Grounds You.
+              <br />
+              Our clients are:
             </p>
           </Reveal>
           <Reveal delay={160}>
@@ -309,9 +324,14 @@ const Index = () => {
           <Reveal delay={120}>
             <p className="t-body text-white max-md:text-center">
               A private, long-term partnership for discerning travelers who see every journey as
-              part of a greater story, their own. This exclusive service curates travel as a living
-              legacy, designed with continuity, intention, and personal evolution in mind. Each
-              journey becomes a reflection of who you are and who you're becoming.
+              part of a greater story, their own.
+              <br />
+              <br />
+              This exclusive service curates travel as a living legacy, designed with continuity,
+              intention, and personal evolution in mind.
+              <br />
+              <br />
+              Each journey becomes a reflection of who you are and who you're becoming.
             </p>
             <Link to="/legacy-travel-portfolio" className="btn-primary mt-5">
               Explore the Legacy Portfolio
@@ -428,8 +448,13 @@ const Index = () => {
         </Reveal>
         <Reveal delay={120}>
           <p className="t-body max-w-[335px] text-center text-white">
-            We don't just plan your travel. We elevate your journey into something timeless. You
-            arrive as you are. You return more of yourself.
+            We don't just plan your travel.
+            <br />
+            We elevate your journey into something timeless.
+            <br />
+            You arrive as you are.
+            <br />
+            You return more of yourself.
           </p>
           <Link
             to="/contact?subject=Request%20a%20Private%20Consultation"
