@@ -229,6 +229,15 @@
     @apply bg-transparent text-copper;
   }
 
+  /* Same copper fill at the larger label size used for section-level choices */
+  .btn-primary-lg {
+    @apply btn border-copper bg-copper text-white text-[14px];
+  }
+
+  .btn-primary-lg:hover {
+    @apply bg-transparent text-copper;
+  }
+
   /* Cream fill, copper label — used over dark imagery in the hero */
   .btn-cream {
     @apply btn border-cream bg-cream text-copper text-[14px];
