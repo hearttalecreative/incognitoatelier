@@ -19,7 +19,7 @@ export const PhotoSlideshowPanel = ({
 }: PhotoSlideshowPanelProps) => (
   <div className={cn("flex w-full items-center justify-center p-[50px] max-md:p-5 md:w-[561px]", className)}>
     <div
-      className="relative flex w-full max-w-[461px] items-end justify-end overflow-hidden p-[25px]"
+      className="photo-zoom relative flex w-full max-w-[461px] items-end justify-end overflow-hidden p-[25px]"
       style={{ minHeight: height }}
     >
       <BackgroundSlideshow images={images} />

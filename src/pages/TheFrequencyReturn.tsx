@@ -1,7 +1,9 @@
 import Footer from "@/components/layout/Footer";
+import ScrollProgress from "@/components/layout/scroll-progress";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import WordRotator from "@/components/ui/word-rotator";
 import BackgroundSlideshow from "@/components/ui/background-slideshow";
@@ -48,6 +50,7 @@ const TheFrequencyReturn = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollProgress />
       <main className="flex-1">
         {/* Hero */}
         <Section
@@ -146,8 +149,8 @@ const TheFrequencyReturn = () => {
 
         {/* Dolphin statement */}
         <Section
-          className="min-h-[278px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
-          style={{ backgroundImage: "url(/assets/dolphins-swimming.jpg)" }}
+          className="min-h-[278px] bg-black px-[10px] overflow-hidden"
+          background={<ParallaxPhoto src="/assets/dolphins-swimming.jpg" />}
           overlay={<Overlay color="#000000" opacity={0.19} />}
           innerWidth={900}
           innerClassName="min-h-[278px] items-center justify-center py-[10px]"
@@ -468,8 +471,8 @@ const TheFrequencyReturn = () => {
 
         {/* Closing */}
         <Section
-          className="min-h-[833px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
-          style={{ backgroundImage: "url(/assets/frequency-return-closing.jpg)" }}
+          className="min-h-[833px] bg-black px-[10px] overflow-hidden"
+          background={<ParallaxPhoto src="/assets/frequency-return-closing.jpg" />}
           overlay={
             <Overlay gradient="linear-gradient(180deg,#FFFFFF00 43%,#0D131D82 72%)" opacity={1} />
           }

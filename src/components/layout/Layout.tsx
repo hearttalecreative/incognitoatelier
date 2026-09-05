@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Header from "./Header";
+import ScrollProgress from "./scroll-progress";
 import Footer from "./Footer";
 
 type LayoutProps = {
@@ -10,6 +11,7 @@ type LayoutProps = {
 
 export const Layout = ({ children, transparentHeader = true }: LayoutProps) => (
   <div className="flex min-h-screen flex-col">
+    <ScrollProgress />
     <Header transparent={transparentHeader} />
     <main className="flex-1">{children}</main>
     <Footer />

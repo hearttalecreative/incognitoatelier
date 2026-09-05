@@ -58,6 +58,7 @@ export const Reveal = ({ children, className, animation = "fadeIn", delay = 0 }:
   return (
     <div
       ref={ref}
+      data-revealed={visible}
       /*
         A Reveal often wraps several widgets that Elementor would have laid out
         as separate flex children. Inheriting the parent's alignment and gap

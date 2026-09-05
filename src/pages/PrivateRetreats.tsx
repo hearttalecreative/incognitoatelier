@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -41,8 +42,8 @@ const PrivateRetreats = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/retreat-corporate.jpg)" }}
+        className="min-h-[70vh] bg-[#5A5A5A] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/retreat-corporate.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.33} />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
@@ -216,8 +217,8 @@ const PrivateRetreats = () => {
 
       {/* The Difference */}
       <Section
-        className="min-h-[566px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
-        style={{ backgroundImage: "url(/assets/woman-viewpoint.jpg)" }}
+        className="min-h-[566px] bg-black px-[10px] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/woman-viewpoint.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.54} />}
         innerWidth={910}
         innerClassName="min-h-[566px] items-end justify-center py-[10px]"
@@ -309,8 +310,8 @@ const PrivateRetreats = () => {
 
       {/* Closing */}
       <Section
-        className="min-h-[864px] bg-black bg-cover bg-center bg-no-repeat pt-[55px]"
-        style={{ backgroundImage: "url(/assets/retreat-woman-rock.jpg)" }}
+        className="min-h-[864px] bg-black pt-[55px] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/retreat-woman-rock.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.35} />}
         innerWidth={1440}
         innerClassName="min-h-[809px] items-center gap-5 pb-[75px] pt-[100px] text-center"

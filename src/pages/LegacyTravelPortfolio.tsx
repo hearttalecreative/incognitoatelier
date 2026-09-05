@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -57,8 +58,8 @@ const LegacyTravelPortfolio = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/legacy-portfolio.jpg)" }}
+        className="min-h-[70vh] bg-[#5A5A5A] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/legacy-portfolio.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.31} />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"

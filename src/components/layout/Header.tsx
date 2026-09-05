@@ -19,7 +19,7 @@ type HeaderProps = {
 const NavItem = ({ link }: { link: NavLink }) => (
   <Link
     to={link.href}
-    className="whitespace-nowrap px-4 font-sans text-[14px] font-medium leading-5 text-white transition-opacity duration-300 hover:opacity-60"
+    className="nav-link mx-4 whitespace-nowrap font-sans text-[14px] font-medium leading-5 text-white transition-opacity duration-300"
   >
     {link.label}
   </Link>

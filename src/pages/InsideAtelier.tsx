@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import BackgroundSlideshow from "@/components/ui/background-slideshow";
 import { journeyTypes, memoriesSlideshow, velaSteps } from "@/data/inside-atelier";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -19,8 +20,8 @@ const InsideAtelier = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[70vh] bg-black bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/woman-poolside.jpg)" }}
+        className="min-h-[70vh] bg-black overflow-hidden"
+        background={<ParallaxPhoto src="/assets/woman-poolside.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
@@ -241,8 +242,8 @@ const InsideAtelier = () => {
       {/* Our Brand Partners */}
       <Section
         id="partners"
-        className="min-h-[469px] bg-black bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/couple-hotel-lounge.jpg)" }}
+        className="min-h-[469px] bg-black overflow-hidden"
+        background={<ParallaxPhoto src="/assets/couple-hotel-lounge.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.62} />}
         innerClassName="items-stretch justify-center gap-0 pb-[65px] pt-[55px] max-lg:justify-around max-md:items-center md:flex-row"
       >

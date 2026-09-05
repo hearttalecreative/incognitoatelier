@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import { sendContactRequest } from "@/lib/forms";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
@@ -164,8 +165,8 @@ const Contact = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/woman-cafe-tablet.jpg)" }}
+        className="min-h-[70vh] bg-[#5A5A5A] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/woman-cafe-tablet.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"

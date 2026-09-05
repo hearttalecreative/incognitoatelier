@@ -59,6 +59,17 @@
     scroll-behavior: smooth;
   }
 
+  /* Anchored sections clear the compact header when jumped to */
+  [id] {
+    scroll-margin-top: 96px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   /* Matches the Elementor kit body default */
   body {
     @apply bg-background text-foreground antialiased;
@@ -208,6 +219,9 @@
 */
 @layer components {
   .btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -221,7 +235,32 @@
     font-weight: 500;
     text-transform: uppercase;
     line-height: 1;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: color 0.35s ease, border-color 0.35s ease, letter-spacing 0.35s ease;
+  }
+
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn:hover {
+    letter-spacing: 0.04em;
+  }
+
+  .btn:hover::after {
+    transform: scaleY(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .btn::after {
+      transition: none;
+    }
   }
 
   /* On light backgrounds */
@@ -229,8 +268,12 @@
     @apply btn border-ink text-ink;
   }
 
+  .btn-dark::after {
+    background-color: hsl(var(--ink));
+  }
+
   .btn-dark:hover {
-    @apply bg-ink text-white;
+    @apply text-white;
   }
 
   /* Over photography, video and the dark bands */
@@ -238,8 +281,12 @@
     @apply btn border-white text-white;
   }
 
+  .btn-light::after {
+    background-color: #fff;
+  }
+
   .btn-light:hover {
-    @apply bg-white text-ink;
+    @apply text-ink;
   }
 
   /* The hero and the four offering links use the 14px label */
@@ -296,9 +343,78 @@
     padding-inline: 10px;
   }
 
-  /* The 40%-width rule under each pillar heading */
+  /* The 40%-width rule under each pillar heading, drawn in on reveal */
   .pillar-divider {
     width: 40%;
     border-top: 1px solid #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+  }
+
+  [data-revealed="true"] .pillar-divider {
+    transform: scaleX(1);
+  }
+
+  /* Nav links draw a hairline in from the left */
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Honeycomb cells settle in one after another */
+  .hex-cell {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-revealed="true"] .hex-cell {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hex-cell:hover {
+    transform: scale(1.05);
+    transition-delay: 0ms !important;
+  }
+
+  /* Photographs breathe slightly under the cursor */
+  .photo-zoom img,
+  .photo-zoom > div {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .photo-zoom:hover img,
+  .photo-zoom:hover > div {
+    transform: scale(1.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pillar-divider,
+    .hex-cell,
+    .nav-link::after,
+    .photo-zoom img,
+    .photo-zoom > div {
+      transition: none;
+      transform: none;
+    }
   }
 }

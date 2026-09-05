@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import WordRotator from "@/components/ui/word-rotator";
 import BackgroundSlideshow from "@/components/ui/background-slideshow";
@@ -37,7 +38,7 @@ const IconList = ({ items }: { items: string[] }) => (
 const PhotoPanel = ({ images, height }: { images: string[]; height: number }) => (
   <div className="flex w-full items-center justify-center p-[50px] max-md:p-5 md:w-[560px]">
     <div
-      className="relative flex w-full max-w-[460px] items-end justify-end overflow-hidden p-[25px]"
+      className="photo-zoom relative flex w-full max-w-[460px] items-end justify-end overflow-hidden p-[25px]"
       style={{ minHeight: height }}
     >
       <BackgroundSlideshow images={images} />
@@ -188,8 +189,8 @@ const Index = () => {
 
       {/* Airplane band — photograph under a 36% black multiply */}
       <Section
-        className="min-h-[221px] overflow-hidden bg-black bg-cover bg-center bg-no-repeat px-[10px]"
-        style={{ backgroundImage: "url(/assets/airplane-sunset.jpg)" }}
+        className="min-h-[221px] overflow-hidden bg-black px-[10px]"
+        background={<ParallaxPhoto src="/assets/airplane-sunset.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.36} />}
         innerWidth={1000}
         innerClassName="min-h-[221px] items-center justify-center gap-5 py-[10px] text-center text-white"
@@ -410,8 +411,8 @@ const Index = () => {
 
       {/* Testimonials intro — photograph under a 26% black multiply, panel pinned right */}
       <Section
-        className="min-h-[566px] overflow-hidden bg-black bg-cover bg-center bg-no-repeat px-[10px]"
-        style={{ backgroundImage: "url(/assets/woman-sea-view.jpg)" }}
+        className="min-h-[566px] overflow-hidden bg-black px-[10px]"
+        background={<ParallaxPhoto src="/assets/woman-sea-view.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.26} />}
         innerWidth={810}
         innerClassName="min-h-[566px] items-end justify-center py-[10px]"
@@ -451,8 +452,8 @@ const Index = () => {
 
       {/* Closing statement — white gradient fading the photograph from the top */}
       <Section
-        className="min-h-[833px] overflow-hidden bg-white bg-cover bg-center bg-no-repeat px-[10px]"
-        style={{ backgroundImage: "url(/assets/landscape-panorama.jpg)" }}
+        className="min-h-[833px] overflow-hidden bg-white px-[10px]"
+        background={<ParallaxPhoto src="/assets/landscape-panorama.jpg" />}
         overlay={
           <Overlay
             gradient="linear-gradient(180deg,#FFFFFF 11%,#FFFFFF00 26%)"

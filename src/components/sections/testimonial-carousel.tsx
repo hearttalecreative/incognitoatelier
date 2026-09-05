@@ -23,8 +23,21 @@ export const TestimonialCarousel = () => {
 
   const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
 
+  /* Advance every eight seconds, holding while the reader is on the card. */
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (!emblaApi || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => emblaApi.scrollNext(), 8000);
+    return () => window.clearInterval(id);
+  }, [emblaApi, paused]);
+
   return (
-    <div className="relative mx-auto w-full max-w-[796px] max-md:max-w-[93%]">
+    <div
+      className="relative mx-auto w-full max-w-[796px] max-md:max-w-[93%]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {testimonials.map((item) => (

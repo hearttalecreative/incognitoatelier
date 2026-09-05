@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
 import Overlay from "@/components/ui/overlay";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import {
   bespokeIncludes,
@@ -40,8 +41,8 @@ const SignatureOfferings = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/resort-pool-sunset.jpg)" }}
+        className="min-h-[70vh] bg-[#5A5A5A] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/resort-pool-sunset.jpg" />}
         overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
@@ -106,8 +107,8 @@ const SignatureOfferings = () => {
       {/* Hotel-Only Bookings */}
       <Section
         id="hotel"
-        className="min-h-[469px] bg-ink bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/hotel-suite.jpg)" }}
+        className="min-h-[469px] bg-ink overflow-hidden"
+        background={<ParallaxPhoto src="/assets/hotel-suite.jpg" />}
         overlay={
           <Overlay gradient="linear-gradient(90deg,#FFFFFF00 0%,#000000 59%)" opacity={1} />
         }

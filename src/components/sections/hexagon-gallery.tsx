@@ -34,13 +34,14 @@ export const HexagonGallery = ({ images, className }: HexagonGalleryProps) => {
           row.map((src, colIndex) => (
             <div
               key={src}
-              className="absolute transition-transform duration-300 hover:scale-105"
+              className="hex-cell absolute"
               style={{
                 clipPath: HEX_CLIP,
                 width: CELL_W,
                 height: CELL_H,
                 top: rowIndex * ROW_STEP,
                 left: colIndex * COL_STEP + (rowIndex % 2 === 0 ? COL_STEP / 2 : 0),
+                transitionDelay: `${(rowIndex * PER_ROW + colIndex) * 45}ms`,
               }}
             >
               <img

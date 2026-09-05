@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import ParallaxPhoto from "@/components/ui/parallax-photo";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 const Resources = () => {
@@ -14,8 +15,8 @@ const Resources = () => {
   return (
     <Layout>
       <Section
-        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/woman-wooden-bridge.jpg)" }}
+        className="min-h-[70vh] bg-[#5A5A5A] overflow-hidden"
+        background={<ParallaxPhoto src="/assets/woman-wooden-bridge.jpg" />}
         innerWidth={800}
         innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
