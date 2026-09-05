@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import {
   bespokeIncludes,
@@ -39,10 +40,11 @@ const SignatureOfferings = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[630px] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/resort-pool-sunset.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[70px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[38px]">
@@ -80,7 +82,7 @@ const SignatureOfferings = () => {
           <div className="flex max-w-[716px] flex-wrap items-center justify-center gap-3 p-[10px]">
             {offeringLinks.map((link, index) => (
               <Reveal key={link.href} animation="zoomIn" delay={index === 0 ? 0 : index === 1 ? 300 : 600}>
-                <a href={link.href} className="btn-dark btn-lg">
+                <a href={link.href} className="btn-dark btn-lg w-[139px]">
                   {link.label}
                 </a>
               </Reveal>
@@ -106,6 +108,9 @@ const SignatureOfferings = () => {
         id="hotel"
         className="min-h-[469px] bg-ink bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/hotel-suite.jpg)" }}
+        overlay={
+          <Overlay gradient="linear-gradient(90deg,#FFFFFF00 0%,#000000 59%)" opacity={1} />
+        }
         innerClassName="items-stretch justify-center gap-0 py-[95px] md:flex-row"
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[570px]">
@@ -154,7 +159,7 @@ const SignatureOfferings = () => {
         className="bg-white"
         innerClassName="items-stretch justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
+        <div className="flex items-start w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
           <Reveal>
             <h2 className="font-display text-[54px] font-light leading-[1.1em] text-foreground max-md:text-[40px]">
               Legacy Travel Portfolio
@@ -226,12 +231,13 @@ const SignatureOfferings = () => {
           {experienceCategories.map((category, index) => (
             <Reveal key={category.title} delay={index * 200}>
               <div className="flex h-full flex-col gap-[15px] p-[35px] max-md:p-5">
-                {/*
-                  The source card carries an image widget that the live desktop
-                  layout collapses to zero height; the slot it leaves is kept so
-                  the rows line up with the original.
-                */}
-                <div aria-hidden="true" className="h-[34px]" />
+                <img
+                  src={category.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="w-full rounded-[5px] object-cover"
+                />
                 <h3 className="font-display text-[30px] font-normal leading-[1.1em] text-copper max-lg:text-[20px] max-md:text-[24px]">
                   {category.title}
                 </h3>
@@ -260,7 +266,7 @@ const SignatureOfferings = () => {
         className="bg-ink"
         innerClassName="items-stretch justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
+        <div className="flex items-start w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
           <Reveal>
             <h2 className="font-display text-[54px] font-light leading-[1.1em] text-white max-md:text-[40px]">
               Bespoke Journeys
@@ -305,7 +311,7 @@ const SignatureOfferings = () => {
         className="bg-taupe"
         innerClassName="items-stretch justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
+        <div className="flex items-start w-full flex-col justify-center gap-4 max-md:items-center md:w-[559px]">
           <Reveal>
             <h2 className="font-display text-[54px] font-light leading-[1.1em] text-white max-md:text-[40px]">
               Private Retreat Design

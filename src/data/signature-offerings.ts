@@ -49,6 +49,7 @@ export const retreatIncludes = [
 export const experienceCategories = [
   {
     title: "Travel Experiences",
+    image: "/assets/offering-hero-1.jpg",
     tagline: "Where connection and celebration meet.",
     items: [
       "Bespoke Journeys",
@@ -61,6 +62,7 @@ export const experienceCategories = [
   },
   {
     title: "Private & Exclusive Access",
+    image: "/assets/offering-hero-2.jpg",
     tagline: "Access that cannot be bought, only designed.",
     items: [
       "Private Aviation",
@@ -72,11 +74,13 @@ export const experienceCategories = [
   },
   {
     title: "Specialized Journeys",
+    image: "/assets/offering-hero-3.jpg",
     tagline: "For those who seek depth and discovery.",
     items: ["Safaris", "Ocean & River Cruising", "Wellness Escapes"],
   },
   {
     title: "Concierge & Support",
+    image: "/assets/offering-hero-4.jpg",
     tagline: "Seamless, discreet, and designed around your lifestyle.",
     items: [
       "Hotel-Only Booking",

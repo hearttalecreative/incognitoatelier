@@ -58,8 +58,14 @@ export const Reveal = ({ children, className, animation = "fadeIn", delay = 0 }:
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      /*
+        A Reveal often wraps several widgets that Elementor would have laid out
+        as separate flex children. Inheriting the parent's alignment and gap
+        keeps them shrinking and spacing the same way they do in the source.
+      */
+      style={{ transitionDelay: `${delay}ms`, alignItems: "inherit", gap: "inherit" }}
       className={cn(
+        "flex flex-col",
         "transition-all [transition-duration:1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
         visible ? "translate-x-0 translate-y-0 scale-100 opacity-100" : HIDDEN[animation],
         "motion-reduce:translate-x-0 motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none",

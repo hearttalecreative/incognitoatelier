@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -40,10 +41,11 @@ const PrivateRetreats = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[630px] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/retreat-corporate.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.33} />}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[70px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[38px]">
@@ -75,7 +77,7 @@ const PrivateRetreats = () => {
         innerWidth={900}
         innerClassName="min-h-[485px] items-center justify-center gap-5 py-[10px] md:flex-row"
       >
-        <div className="flex w-full flex-col justify-center p-[10px] max-md:items-center md:w-[352px]">
+        <div className="flex items-start w-full flex-col justify-center p-[10px] max-md:items-center md:w-[352px]">
           <Reveal>
             <h2 className="-mb-[20px] font-display text-[48px] font-light leading-[1.1em] text-foreground max-md:text-center">
               The
@@ -86,7 +88,7 @@ const PrivateRetreats = () => {
           </Reveal>
         </div>
 
-        <div className="flex w-full flex-col justify-center py-[45px] max-md:items-center md:w-[528px]">
+        <div className="flex items-start w-full flex-col justify-center py-[45px] max-md:items-center md:w-[528px]">
           <Reveal delay={120}>
             <p className="t-body text-foreground max-md:text-center">
               You don't need another venue or another schedule.
@@ -113,10 +115,11 @@ const PrivateRetreats = () => {
       {/* Video statement */}
       <Section
         className="min-h-[368px] overflow-hidden bg-black px-[10px]"
+        background={<VimeoBackground videoId="1147712792" poster="/assets/poster-retreats-hero.jpg" />}
+        overlay={<Overlay color="#000000" opacity={0.35} />}
         innerWidth={1000}
-        innerClassName="relative min-h-[368px] items-center justify-center py-[10px]"
+        innerClassName="min-h-[368px] items-center justify-center py-[10px]"
       >
-        <VimeoBackground videoId="1147712792" poster="/assets/poster-retreats-hero.jpg" />
         <Reveal>
           <p className="relative -mt-[13px] max-w-[327px] text-center font-serif text-[29px] font-light italic leading-[1.3em] text-white max-md:text-[22px]">
             Guests don't just attend.
@@ -132,7 +135,16 @@ const PrivateRetreats = () => {
 
       {/* Our Approach */}
       <Section
-        className="min-h-[357px] bg-cream py-[55px]"
+        className="min-h-[357px] overflow-hidden bg-cream py-[55px]"
+        overlay={
+          <Overlay
+            image="/assets/texture-paper.jpg"
+            opacity={0.99}
+            blend="screen"
+            repeat="repeat"
+            size="31% auto"
+          />
+        }
         innerWidth={864}
         innerClassName="items-center gap-5 p-[10px]"
       >
@@ -162,8 +174,8 @@ const PrivateRetreats = () => {
         className="bg-white"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[40px] font-light leading-[1.1em] text-foreground max-md:text-center">
               What We Deliver.
             </h2>
@@ -206,11 +218,12 @@ const PrivateRetreats = () => {
       <Section
         className="min-h-[566px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
         style={{ backgroundImage: "url(/assets/woman-viewpoint.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.54} />}
         innerWidth={910}
         innerClassName="min-h-[566px] items-end justify-center py-[10px]"
       >
-        <div className="flex w-full flex-col justify-center gap-5 p-[10px] max-md:items-center md:w-[637px]">
-          <Reveal className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col justify-center gap-5 p-[10px] max-md:items-center md:w-[637px]">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[48px] font-light leading-[1.1em] text-white max-md:text-center max-md:text-[34px]">
               The Difference
             </h2>
@@ -242,8 +255,8 @@ const PrivateRetreats = () => {
         className="bg-cream"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col justify-center gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[40px] font-light leading-[1.1em] text-foreground max-md:text-center">
               Who It's For
             </h2>
@@ -298,6 +311,7 @@ const PrivateRetreats = () => {
       <Section
         className="min-h-[864px] bg-black bg-cover bg-center bg-no-repeat pt-[55px]"
         style={{ backgroundImage: "url(/assets/retreat-woman-rock.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.35} />}
         innerWidth={1440}
         innerClassName="min-h-[809px] items-center gap-5 pb-[75px] pt-[100px] text-center"
       >

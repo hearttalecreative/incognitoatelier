@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import WordRotator from "@/components/ui/word-rotator";
 import BackgroundSlideshow from "@/components/ui/background-slideshow";
@@ -56,9 +57,10 @@ const TheFrequencyReturn = () => {
         <Section
           className="min-h-[85vh] overflow-hidden bg-black px-[10px]"
           innerWidth={900}
-          innerClassName="relative min-h-[85vh] items-center justify-center gap-4 py-16 text-center text-white"
+          background={<VimeoBackground videoId="1150089115" poster="/assets/poster-frequency-hero.jpg" />}
+          overlay={<Overlay color="#000000" opacity={0.28} />}
+          innerClassName="min-h-[85vh] items-center justify-center gap-4 py-16 text-center text-white"
         >
-          <VimeoBackground videoId="1150089115" poster="/assets/poster-frequency-hero.jpg" />
           <Reveal>
             <img
               src="/assets/logo-stacked-color.svg"
@@ -96,7 +98,7 @@ const TheFrequencyReturn = () => {
           className="min-h-[439px] bg-white"
           innerClassName="min-h-[439px] items-center justify-center gap-5 py-[55px] md:flex-row"
         >
-          <div className="flex w-full flex-col justify-center p-[10px] max-md:items-center md:w-1/2">
+          <div className="flex items-start w-full flex-col justify-center p-[10px] max-md:items-center md:w-1/2">
             <Reveal>
               <h2 className="font-display text-[66px] font-light italic leading-[1.1em] text-foreground max-md:text-center max-md:text-[42px]">
                 This is More
@@ -107,8 +109,8 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="flex w-full flex-col justify-center gap-5 p-[10px] md:w-1/2">
-            <Reveal delay={200} className="flex flex-col gap-5">
+          <div className="flex items-start w-full flex-col justify-center gap-5 p-[10px] md:w-1/2">
+            <Reveal delay={200} className="flex flex-col items-start gap-5">
               <p className="t-body text-foreground">
                 In nine days in Egypt, you release what has been weighing on your body and nervous
                 system, reconnect with your natural rhythm, and return home clearer, lighter, and
@@ -150,6 +152,7 @@ const TheFrequencyReturn = () => {
         <Section
           className="min-h-[278px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
           style={{ backgroundImage: "url(/assets/dolphins-swimming.jpg)" }}
+          overlay={<Overlay color="#000000" opacity={0.19} />}
           innerWidth={900}
           innerClassName="min-h-[278px] items-center justify-center py-[10px]"
         >
@@ -177,8 +180,8 @@ const TheFrequencyReturn = () => {
           className="bg-white"
           innerClassName="items-center justify-center gap-5 py-[55px] md:flex-row-reverse"
         >
-          <div className="flex w-full flex-col gap-5 p-[10px] max-md:items-center md:w-1/2">
-            <Reveal animation="fadeInLeft" className="flex flex-col gap-5">
+          <div className="flex items-start w-full flex-col gap-5 p-[10px] max-md:items-center md:w-1/2">
+            <Reveal animation="fadeInLeft" className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[48px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
                 Who this Experience is for
               </h2>
@@ -253,10 +256,10 @@ const TheFrequencyReturn = () => {
         {/* Why dolphins */}
         <Section
           className="min-h-[469px] overflow-hidden bg-black px-[10px]"
-          innerClassName="relative min-h-[469px] items-center justify-center gap-5 py-[55px] text-white md:flex-row"
+          background={<VimeoBackground videoId="1150089063" poster="/assets/dolphins-water.jpg" />}
+          overlay={<Overlay color="#000000" opacity={0.44} />}
+          innerClassName="min-h-[469px] items-center justify-center gap-5 py-[55px] text-white md:flex-row"
         >
-          <VimeoBackground videoId="1150089063" poster="/assets/dolphins-water.jpg" />
-          <div className="absolute inset-0 bg-black/40" />
 
           <div className="relative flex w-full flex-col justify-center p-[10px] max-md:items-center md:w-[30%]">
             <Reveal>
@@ -335,13 +338,13 @@ const TheFrequencyReturn = () => {
         <Section
           className="min-h-[698px] overflow-hidden bg-black bg-cover bg-center px-[10px]"
           style={{ backgroundImage: "url(/assets/woman-sea-view.jpg)" }}
-          innerClassName="relative min-h-[698px] items-center justify-center gap-5 py-[55px] text-white"
+          background={<VimeoBackground videoId="1150089041" poster="/assets/woman-sea-view.jpg" />}
+          overlay={<Overlay color="#000000" opacity={0.42} />}
+          innerClassName="min-h-[698px] items-center justify-center gap-5 py-[55px] text-white"
         >
-          <VimeoBackground videoId="1150089041" poster="/assets/woman-sea-view.jpg" />
-          <div className="absolute inset-0 bg-black/45" />
 
           <div className="relative flex w-full flex-col gap-5 p-[10px] max-md:items-center">
-            <Reveal className="flex flex-col gap-5">
+            <Reveal className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[48px] font-light leading-[1.1em] max-md:text-center max-md:text-[32px]">
                 This Experience is not for Everyone
               </h2>
@@ -392,7 +395,7 @@ const TheFrequencyReturn = () => {
           innerClassName="items-center justify-center gap-5 py-[55px] md:flex-row"
         >
           <div className="flex w-full flex-col gap-5 p-[10px] max-md:items-center md:w-[40%]">
-            <Reveal className="flex flex-col gap-5">
+            <Reveal className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[30px]">
                 A different Standard of Luxury.
               </h2>
@@ -471,6 +474,9 @@ const TheFrequencyReturn = () => {
         <Section
           className="min-h-[833px] bg-black bg-cover bg-center bg-no-repeat px-[10px]"
           style={{ backgroundImage: "url(/assets/frequency-return-closing.jpg)" }}
+          overlay={
+            <Overlay gradient="linear-gradient(180deg,#FFFFFF00 43%,#0D131D82 72%)" opacity={1} />
+          }
           innerClassName="min-h-[833px] items-center justify-center gap-5 py-[55px] text-center text-white"
         >
           <Reveal className="flex w-full max-w-[60%] flex-col items-center gap-5 max-md:max-w-full">

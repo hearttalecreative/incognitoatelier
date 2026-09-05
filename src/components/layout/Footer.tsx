@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
 import { footerLinks, legalLinks } from "@/data/navigation";
+import Overlay from "@/components/ui/overlay";
 import { subscribeToNewsletter } from "@/lib/forms";
 
 /*
@@ -28,20 +29,21 @@ const Newsletter = () => {
   };
 
   return (
-    <section
-      className="bg-taupe py-16"
-      style={{
-        backgroundImage: "url(/assets/texture-paper.jpg)",
-        backgroundSize: "20% auto",
-        backgroundRepeat: "repeat",
-      }}
-    >
-      <div className="e-container flex flex-col items-center">
-        <p className="mb-[23px] w-full text-left font-serif text-[14px] font-medium uppercase tracking-normal text-cream max-md:text-center">
+    <section className="relative min-h-[283px] overflow-hidden bg-taupe py-16">
+      {/* Paper texture tiled at 20% and laid over the taupe at 48% */}
+      <Overlay
+        image="/assets/texture-paper.jpg"
+        opacity={0.48}
+        blend="multiply"
+        repeat="repeat"
+        size="20% auto"
+      />
+      <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center px-[10px]">
+        <p className="mb-[23px] font-serif text-[14px] font-medium uppercase tracking-normal text-cream">
           newsletter
         </p>
 
-        <h2 className="w-full text-left font-serif text-[34px] font-normal tracking-[-0.8px] text-cream max-md:text-center max-md:tracking-[-0.1px]">
+        <h2 className="text-center font-serif text-[34px] font-normal leading-[34px] tracking-[-0.8px] text-cream max-md:tracking-[-0.1px]">
           Stay connected to what matters
         </h2>
 
@@ -49,7 +51,7 @@ const Newsletter = () => {
           Insights, curated travel notes, and meaningful updates delivered with intention.
         </p>
 
-        <form onSubmit={onSubmit} className="mt-5 flex w-full max-w-xl flex-col gap-[5px] sm:flex-row">
+        <form onSubmit={onSubmit} className="mt-5 flex w-full flex-col gap-[5px] sm:flex-row">
           <label htmlFor="newsletter-email" className="sr-only">
             Email
           </label>
@@ -135,7 +137,7 @@ export const Footer = () => (
     </div>
 
     <div className="bg-[#383838] py-4">
-      <p className="text-center font-sans text-[11px] font-medium leading-[1.2em] text-[#DFDFDF]">
+      <p className="mx-auto max-w-[560px] text-center font-sans text-[11px] font-medium leading-[11px] text-[#DFDFDF] max-md:leading-[1.2em]">
         Copyright {new Date().getFullYear()} Incognito Atelier. All Rights Reserved. &nbsp;|&nbsp;
         Developed with ♥ by{" "}
         <a

@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import BackgroundSlideshow from "@/components/ui/background-slideshow";
 import { journeyTypes, memoriesSlideshow, velaSteps } from "@/data/inside-atelier";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -18,10 +19,11 @@ const InsideAtelier = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[630px] bg-black bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-black bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/woman-poolside.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[70px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[38px]">
@@ -50,7 +52,7 @@ const InsideAtelier = () => {
         className="bg-white"
         innerClassName="items-stretch justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex w-full flex-col justify-center gap-5 max-md:items-center md:w-[559px]">
+        <div className="flex items-start w-full flex-col justify-center gap-5 max-md:items-center md:w-[559px]">
           <Reveal>
             <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
               We don't just design itineraries. We curate meaningful memories
@@ -100,11 +102,15 @@ const InsideAtelier = () => {
       {/* Whether you're planning… */}
       <Section
         className="bg-ink"
-        style={{
-          backgroundImage: "url(/assets/texture-paper.jpg)",
-          backgroundSize: "21% auto",
-          backgroundRepeat: "repeat",
-        }}
+        overlay={
+          <Overlay
+            image="/assets/texture-paper.jpg"
+            opacity={0.34}
+            blend="screen"
+            repeat="repeat"
+            size="21% auto"
+          />
+        }
         innerClassName="items-center gap-5 py-[65px]"
       >
         <Reveal>
@@ -121,7 +127,7 @@ const InsideAtelier = () => {
                 style={{ backgroundImage: `url(${journey.image})` }}
               >
                 {/* Bottom-anchored scrim so the label stays legible */}
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,#00000000_56%,#000000_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,#00000000_56%,#000000_100%)] opacity-[0.77]" />
                 <p className="relative text-center font-sans text-[14px] font-medium leading-[1.1em] text-white max-md:text-[17px]">
                   {journey.label}
                 </p>
@@ -237,6 +243,7 @@ const InsideAtelier = () => {
         id="partners"
         className="min-h-[469px] bg-black bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/couple-hotel-lounge.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.62} />}
         innerClassName="items-stretch justify-center gap-0 pb-[65px] pt-[55px] max-lg:justify-around max-md:items-center md:flex-row"
       >
         <div className="flex items-center justify-start max-md:justify-center md:w-[342px]">
@@ -289,11 +296,19 @@ const InsideAtelier = () => {
       {/* Meet Valentina */}
       <Section
         id="valentina"
-        className="bg-contain bg-right bg-no-repeat max-md:bg-bottom"
-        style={{ backgroundImage: "url(/assets/logo-monogram-black.svg)" }}
+        className="bg-white"
+        overlay={
+          <Overlay
+            image="/assets/logo-monogram-black.svg"
+            opacity={0.03}
+            blend="multiply"
+            position="center right"
+            size="contain"
+          />
+        }
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex w-full flex-col gap-4 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+        <div className="flex items-start w-full flex-col gap-4 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
           <Reveal>
             <h2 className="t-display-lg text-foreground max-md:text-center max-md:text-[41px]">
               Meet Valentina

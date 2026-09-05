@@ -134,7 +134,7 @@ const Index = () => {
         innerClassName="min-h-[154px] items-center justify-center py-[10px]"
       >
         <Reveal>
-          <p className="t-serif-md text-center text-foreground">
+          <p className="t-serif-md mx-auto max-w-[1049px] text-center text-foreground">
             Because true luxury is not about where you go, it's about how you feel when you return.
           </p>
         </Reveal>
@@ -154,8 +154,8 @@ const Index = () => {
         }
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row-reverse"
       >
-        <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal animation="fadeInLeft" className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+          <Reveal animation="fadeInLeft" className="flex flex-col items-start gap-5">
             <h2 className="t-display-lg text-foreground max-md:text-center">
               Designed for a Different Kind of Luxury
             </h2>
@@ -195,10 +195,10 @@ const Index = () => {
         innerClassName="min-h-[221px] items-center justify-center gap-5 py-[10px] text-center text-white"
       >
         <Reveal>
-          <p className="t-serif-caps">Every itinerary is designed to renew, delight, and restore.</p>
+          <p className="t-serif-caps mx-auto max-w-[884px]">Every itinerary is designed to renew, delight, and restore.</p>
         </Reveal>
         <Reveal>
-          <p className="t-serif-sm -mt-[13px] max-md:-mt-[10px]">
+          <p className="t-serif-sm mx-auto -mt-[13px] max-w-[918px] max-md:-mt-[10px]">
             True luxury is not more travel, it is the right travel, designed to honor your time,
             your energy, and your legacy.
           </p>
@@ -262,8 +262,8 @@ const Index = () => {
         }
         innerClassName="min-h-[144px] items-end py-[10px]"
       >
-        <div className="flex w-full flex-col gap-5 p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
-          <Reveal animation="fadeInRight" className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col gap-5 p-[60px] text-white max-md:items-center max-md:p-8 md:w-[684px]">
+          <Reveal animation="fadeInRight" className="flex flex-col items-start gap-5">
             <h2 className="t-display-lg max-md:text-center">The Experience</h2>
             <p className="t-body max-md:text-center">
               Travel that becomes enduring memories. This is not the joy of display, but of being.
@@ -297,8 +297,8 @@ const Index = () => {
         className="bg-white"
         innerClassName="items-center justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
-          <Reveal className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[560px]">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
               Designed for those who understand that true luxury is found in time, presence, and
               connection.
@@ -340,9 +340,9 @@ const Index = () => {
         }
         innerClassName="min-h-[469px] items-stretch justify-start gap-0 pb-[65px] pt-[55px] max-lg:justify-around max-md:items-center md:flex-row"
       >
-        <div className="flex items-center justify-start max-md:justify-center md:w-[342px]">
+        <div className="flex items-center justify-start p-[10px] max-md:justify-center md:w-[342px]">
           <Reveal>
-            <div className="flex flex-col items-start justify-center max-md:items-center">
+            <div className="flex w-full max-w-[322px] flex-col items-start justify-center max-md:items-center">
               <h2 className="t-display-xl italic text-white max-md:text-center">Legacy</h2>
               <h2 className="t-display-lg -mt-[25px] text-white max-md:-mt-[14px] max-md:text-center">
                 Travel Portfolio
@@ -352,7 +352,7 @@ const Index = () => {
         </div>
 
         <div className="flex flex-col items-start justify-center gap-5 py-[45px] pr-[45px] max-md:items-center max-md:px-5 md:w-[570px]">
-          <Reveal className="flex flex-col gap-5">
+          <Reveal className="flex flex-col items-start gap-5">
             <p className="t-body text-white max-md:text-center">
               A private, long-term partnership for discerning travelers who see every journey as
               part of a greater story, their own.
@@ -417,7 +417,7 @@ const Index = () => {
         innerClassName="min-h-[566px] items-end justify-center py-[10px]"
       >
         <div className="flex w-full flex-col items-start justify-center gap-5 p-[10px] text-white max-md:items-center md:w-[567px]">
-          <Reveal className="flex flex-col gap-5">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="t-display-lg max-md:text-center">Every journey leaves an impression</h2>
             <p className="t-body max-md:text-center">
               Here, our travelers share how intentional design transformed their experience, moments
@@ -437,7 +437,7 @@ const Index = () => {
         <Reveal className="w-full">
           <div className="flex flex-col items-center gap-5 p-[10px] text-center">
             <h2 className="t-display-lg text-foreground max-md:text-[37px]">In Their Words</h2>
-            <p className="t-body text-center text-foreground">
+            <p className="t-body mx-auto max-w-[965px] text-center text-foreground">
               Each journey leaves an imprint. These voices offer a glimpse into the experiences,
               care, and intention our clients felt throughout every step of the way.
             </p>

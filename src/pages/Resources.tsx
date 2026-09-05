@@ -14,10 +14,10 @@ const Resources = () => {
   return (
     <Layout>
       <Section
-        className="min-h-[630px] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/woman-wooden-bridge.jpg)" }}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[58px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[38px]">

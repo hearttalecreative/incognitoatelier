@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import VimeoBackground from "@/components/ui/vimeo-background";
 import PhotoSlideshowPanel from "@/components/sections/photo-slideshow-panel";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -56,10 +57,11 @@ const LegacyTravelPortfolio = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[630px] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/legacy-portfolio.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.31} />}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[70px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[40px]">
@@ -87,11 +89,11 @@ const LegacyTravelPortfolio = () => {
       {/* The Legacy Portfolio Blueprint */}
       <Section className="bg-ink" innerClassName="gap-5 pb-[65px] pt-[45px]">
         <Reveal>
-          <div className="flex flex-col gap-5 px-[45px] pt-[45px] max-md:items-center max-md:px-5">
-            <h2 className="-mt-[25px] font-display text-[48px] font-light leading-[1.1em] text-white max-md:-mt-[14px] max-md:text-center max-md:text-[31px]">
+          <div className="flex flex-col items-center gap-5 px-[45px] pt-[45px] max-md:px-5">
+            <h2 className="-mt-[25px] font-display text-[48px] font-light leading-[1.1em] text-white max-md:-mt-[14px] max-md:text-[31px]">
               The Legacy Portfolio
             </h2>
-            <p className="-mt-[17px] font-display text-[57px] font-light italic leading-[1.1em] text-white max-md:text-center max-md:text-[38px]">
+            <p className="-mt-[17px] font-display text-[57px] font-light italic leading-[1.1em] text-white max-md:text-[38px]">
               Blueprint
             </p>
             <p className="text-center font-body text-[19px] font-semibold leading-[1.4em] text-white">
@@ -132,11 +134,11 @@ const LegacyTravelPortfolio = () => {
       {/* The Philosophy */}
       <Section innerClassName="justify-center gap-5 pb-[85px] pt-[65px]">
         <Reveal>
-          <div className="flex flex-col gap-5 max-md:items-center">
-            <h2 className="font-display text-[37px] font-light uppercase leading-[1.1em] text-foreground max-md:text-center max-md:text-[34px]">
+          <div className="flex flex-col items-center gap-5">
+            <h2 className="font-display text-[37px] font-light uppercase leading-[1.1em] text-foreground max-md:text-[34px]">
               The Philosophy
             </h2>
-            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-center max-md:text-[19px]">
+            <p className="font-display text-[22px] font-light italic leading-[1.5em] text-ink max-md:text-[19px]">
               Where journeys become legacy.
             </p>
           </div>
@@ -144,7 +146,7 @@ const LegacyTravelPortfolio = () => {
 
         <Reveal delay={120}>
           <div className="flex flex-col gap-5 p-[10px]">
-            <p className="t-body text-right text-foreground max-md:text-center">
+            <p className="t-body max-w-[412px] text-right text-foreground max-md:max-w-none max-md:text-center">
               We believe travel is more than a moment; it's a mirror of who you are and what you
               value most. The Legacy Travel Portfolio was created to honor that
               philosophy—transforming travel from a series of trips into a curated collection of
@@ -163,9 +165,10 @@ const LegacyTravelPortfolio = () => {
       {/* Video statement */}
       <Section
         className="min-h-[325px] overflow-hidden bg-black px-[10px]"
-        innerClassName="relative min-h-[325px] items-center justify-center py-[10px]"
+        background={<VimeoBackground videoId="1146249188" poster="/assets/poster-legacy-hero.jpg" />}
+        overlay={<Overlay color="#000000" opacity={0.5} />}
+        innerClassName="min-h-[325px] items-center justify-center py-[10px]"
       >
-        <VimeoBackground videoId="1146249188" poster="/assets/poster-legacy-hero.jpg" />
         <Reveal>
           <p className="relative max-w-[831px] text-center font-serif text-[30px] font-light italic leading-[1.3em] text-white max-lg:text-[22px] max-md:text-[19px]">
             Your legacy isn't built in a single journey.
@@ -226,8 +229,8 @@ const LegacyTravelPortfolio = () => {
         className="bg-white"
         innerClassName="items-stretch justify-center gap-5 py-[66px] md:flex-row"
       >
-        <div className="flex w-full flex-col justify-center gap-4 pl-[35px] max-md:items-center max-md:px-5 md:w-[559px]">
-          <Reveal className="flex flex-col gap-5">
+        <div className="flex items-start w-full flex-col justify-center gap-4 pl-[35px] max-md:items-center max-md:px-5 md:w-[559px]">
+          <Reveal className="flex flex-col items-start gap-5">
             <h2 className="font-display text-[54px] font-light leading-[1.1em] text-foreground max-md:text-[40px]">
               The Benefits
             </h2>
@@ -235,14 +238,14 @@ const LegacyTravelPortfolio = () => {
               What the Portfolio Includes
             </p>
           </Reveal>
-          <Reveal delay={100} className="flex flex-col gap-5">
+          <Reveal delay={100} className="flex flex-col items-start gap-5">
             <p className="t-body text-foreground">
               Membership in the Legacy Travel Portfolio provides exclusive access to our most
               personalized services, designed to save you time, simplify your planning, and elevate
               every experience.
             </p>
           </Reveal>
-          <Reveal delay={160} className="flex flex-col gap-5">
+          <Reveal delay={160} className="flex flex-col items-start gap-5">
             <p className="t-body font-semibold text-ink">Highlights:</p>
             <ul className="e-list">
               {highlights.map((item) => (

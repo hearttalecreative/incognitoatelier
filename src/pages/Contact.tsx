@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/layout/section";
 import Reveal from "@/components/ui/reveal";
+import Overlay from "@/components/ui/overlay";
 import { sendContactRequest } from "@/lib/forms";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
@@ -163,10 +164,11 @@ const Contact = () => {
     <Layout>
       {/* Hero */}
       <Section
-        className="min-h-[630px] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
+        className="min-h-[70vh] bg-[#5A5A5A] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/assets/woman-cafe-tablet.jpg)" }}
+        overlay={<Overlay color="#000000" opacity={0.5} />}
         innerWidth={800}
-        innerClassName="min-h-[630px] items-center justify-center gap-5 text-center text-white"
+        innerClassName="min-h-[70vh] items-center justify-center gap-5 text-center text-white"
       >
         <Reveal>
           <h1 className="font-serif text-[70px] font-normal leading-[1.2em] max-md:mt-14 max-md:text-[38px]">
