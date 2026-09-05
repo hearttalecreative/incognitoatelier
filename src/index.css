@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens lifted from the Elementor global kit of incognito-atelier.com.
+  Source hex values are kept in comments so the mapping stays auditable.
+*/
+@layer base {
+  :root {
+    --cream: 33 26% 92%; /* #EFEAE4 */
+    --forest: 168 19% 21%; /* #2B3F3B */
+    --taupe: 27 8% 50%; /* #8A7F76 */
+    --copper: 22 38% 63%; /* #C4967C */
+    --ink: 240 10% 6%; /* #0D0D10 */
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 22%; /* #383838 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 22%;
+
+    --primary: 240 10% 6%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 33 26% 92%;
+    --secondary-foreground: 240 10% 6%;
+
+    --muted: 33 26% 92%;
+    --muted-foreground: 27 8% 50%;
+
+    --accent: 22 38% 63%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 27 8% 82%;
+    --input: 27 8% 82%;
+    --ring: 22 38% 63%;
+
+    --radius: 0px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  h1,
+  h2 {
+    @apply font-display font-light;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-light;
+  }
+}
+
+@layer components {
+  /* Small uppercase label used above most section headings */
+  .eyebrow {
+    @apply font-sans text-eyebrow font-medium uppercase text-taupe;
+  }
+
+  /* The site's single button treatment: thin outline, letterspaced label */
+  .btn-atelier {
+    @apply inline-flex items-center justify-center border border-current px-8 py-4
+           font-sans text-[14px] font-medium tracking-[0.12em]
+           transition-colors duration-300;
+  }
+
+  .btn-atelier-light {
+    @apply btn-atelier text-white hover:bg-white hover:text-ink;
+  }
+
+  .btn-atelier-dark {
+    @apply btn-atelier text-ink hover:bg-ink hover:text-white;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
