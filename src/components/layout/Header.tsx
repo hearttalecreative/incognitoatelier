@@ -15,13 +15,11 @@ type HeaderProps = {
   transparent?: boolean;
 };
 
-const NavItem = ({ link, light }: { link: NavLink; light: boolean }) => (
+/* Montserrat 14/500, 16px of padding either side — the Elementor nav-menu settings. */
+const NavItem = ({ link }: { link: NavLink }) => (
   <Link
     to={link.href}
-    className={cn(
-      "font-sans text-[14px] font-medium leading-5 transition-opacity duration-300 hover:opacity-60",
-      light ? "text-white" : "text-ink"
-    )}
+    className="whitespace-nowrap px-4 font-sans text-[14px] font-medium leading-5 text-white transition-opacity duration-300 hover:opacity-60"
   >
     {link.label}
   </Link>
@@ -50,93 +48,99 @@ export const Header = ({ transparent = false }: HeaderProps) => {
     };
   }, [menuOpen]);
 
-  const overlay = transparent && !scrolled;
-  const light = overlay || scrolled;
-
   return (
     <>
       <header
         className={cn(
           "z-50 w-full transition-colors duration-500",
           transparent ? "absolute inset-x-0 top-0" : "relative bg-ink",
-          scrolled && "fixed bg-ink/95 backdrop-blur-sm"
+          transparent && scrolled && "fixed bg-ink/90 backdrop-blur-sm"
         )}
       >
-        <div className="mx-auto flex h-[120px] w-[95%] max-w-[1364px] items-center justify-between gap-6">
-          <button
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(true)}
-            className={cn("shrink-0 transition-opacity hover:opacity-60", light ? "text-white" : "text-ink")}
-          >
-            <Menu strokeWidth={1} className="h-6 w-6" />
-          </button>
+        <div className="mx-auto flex h-[120px] w-[95%] max-w-[1364px] items-center justify-between gap-0">
+          {/* Left cluster: menu trigger, then the first half of the nav */}
+          <div className="flex flex-1 items-center justify-start gap-[5px]">
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+              className="shrink-0 text-white transition-opacity hover:opacity-60"
+            >
+              <Menu strokeWidth={1.25} className="h-[27px] w-[27px]" />
+            </button>
 
-          <nav className="hidden flex-1 items-center justify-end gap-8 lg:flex">
-            {primaryNavLeft.map((link) => (
-              <NavItem key={link.href} link={link} light={light} />
-            ))}
-          </nav>
+            <nav className="hidden flex-1 items-center justify-end lg:flex">
+              {primaryNavLeft.map((link) => (
+                <NavItem key={link.href} link={link} />
+              ))}
+            </nav>
+          </div>
 
-          <Link to="/" aria-label="Incognito Atelier" className="shrink-0">
+          {/* Centred monogram, 50px wide */}
+          <Link to="/" aria-label="Incognito Atelier" className="shrink-0 px-4 py-[5px]">
             <img
               src="/assets/logo-monogram-white.svg"
               alt="Incognito Atelier"
-              className={cn("h-8 w-auto", !light && "invert")}
+              className="w-[50px]"
             />
           </Link>
 
-          <nav className="hidden flex-1 items-center justify-start gap-8 lg:flex">
-            {primaryNavRight.map((link) => (
-              <NavItem key={link.href} link={link} light={light} />
-            ))}
-          </nav>
+          {/* Right cluster: second half of the nav, then the pill CTA */}
+          <div className="flex flex-1 items-center justify-center gap-[5px]">
+            <nav className="hidden flex-1 items-center justify-start lg:flex">
+              {primaryNavRight.map((link) => (
+                <NavItem key={link.href} link={link} />
+              ))}
+            </nav>
 
-          <Link
-            to={planTripHref}
-            className={cn(
-              "hidden shrink-0 px-6 py-3 font-sans text-[14px] font-medium tracking-[0.08em] transition-colors duration-300 md:inline-flex",
-              light
-                ? "border border-white/70 text-white hover:bg-white hover:text-ink"
-                : "border border-ink text-ink hover:bg-ink hover:text-white"
-            )}
-          >
-            Plan Your Trip
-          </Link>
+            <Link
+              to={planTripHref}
+              className="hidden shrink-0 rounded-full px-4 py-3 font-sans text-[14px] font-medium leading-none text-white transition-colors duration-300 hover:bg-white/10 md:inline-flex"
+            >
+              Plan Your Trip
+            </Link>
+          </div>
         </div>
       </header>
 
-      {/* Full-screen overlay carrying the deep links */}
+      {/* Off-canvas panel, 69% black wash over the page */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] bg-ink transition-opacity duration-500",
+          "fixed inset-0 z-[60] overflow-y-auto bg-ink/[0.69] backdrop-blur-sm transition-opacity duration-500",
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
       >
-        <div className="mx-auto flex h-[120px] w-[95%] max-w-[1364px] items-center justify-between">
-          <span className="eyebrow text-taupe">Menu</span>
+        <div className="mx-auto flex w-[95%] max-w-[1364px] flex-col items-start pb-20">
           <button
             type="button"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
-            className="text-white transition-opacity hover:opacity-60"
+            className="mt-[50px] self-start text-taupe transition-opacity hover:opacity-60"
           >
-            <X strokeWidth={1} className="h-6 w-6" />
+            <X strokeWidth={1.25} className="h-[23px] w-[23px]" />
           </button>
-        </div>
 
-        <nav className="mx-auto grid w-[95%] max-w-[1364px] gap-6 pt-8 md:grid-cols-2 md:gap-8">
-          {[...primaryNavLeft, ...primaryNavRight, ...menuOverlayLinks].map((link) => (
-            <Link
-              key={`${link.label}-${link.href}`}
-              to={link.href}
-              className="font-display text-3xl font-light text-white transition-colors duration-300 hover:text-copper md:text-4xl"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+          <img
+            src="/assets/logo-horizontal-gold-white.svg"
+            alt="Incognito Atelier"
+            className="mt-8 w-[151px]"
+          />
+
+          <p className="mt-[50px] font-sans text-[12px] font-medium uppercase text-taupe">Menu</p>
+
+          <nav className="mt-4 flex w-full flex-col">
+            {[...primaryNavLeft, ...primaryNavRight, ...menuOverlayLinks].map((link) => (
+              <Link
+                key={`${link.label}-${link.href}`}
+                to={link.href}
+                className="border-b border-taupe/30 py-[11px] font-serif text-[24px] font-medium leading-[1.1em] text-taupe transition-colors duration-300 hover:text-cream"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </>
   );

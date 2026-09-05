@@ -66,10 +66,12 @@ export const testimonials = [
   },
 ];
 
-/* The 20 partner marks shown in the Global Network grid. */
-export const partnerLogos = Array.from(
-  { length: 20 },
-  (_, index) => `/assets/partner-${String(index + 1).padStart(2, "0")}.jpg`
+/*
+  The 20 partner marks, in the order the honeycomb lays them out on the live
+  site (four per row, five rows).
+*/
+export const partnerLogos = [17, 18, 19, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 20].map(
+  (n) => `/assets/partner-${String(n).padStart(2, "0")}.jpg`
 );
 
 /* Words cycled by the closing statement. */

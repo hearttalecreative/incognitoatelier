@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { testimonials } from "@/data/home";
 
+/*
+  Elementor "Slides" widget: one slide at a time capped at 60% width, its own
+  background artwork per slide, 50px padding, dot pagination and no arrows.
+*/
 export const TestimonialCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
@@ -18,64 +21,44 @@ export const TestimonialCarousel = () => {
     };
   }, [emblaApi]);
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
 
   return (
-    <div className="relative">
+    <div className="relative mx-auto w-full max-w-[796px] max-md:max-w-[93%]">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {testimonials.map((item) => (
-            <div key={item.author} className="min-w-0 flex-[0_0_100%] px-4 md:flex-[0_0_60%]">
+            <div key={item.author} className="min-w-0 flex-[0_0_100%]">
               <figure
-                className="flex h-full flex-col justify-between bg-cover bg-center p-10 md:p-14"
+                className="flex h-[522px] flex-col justify-center bg-copper bg-cover bg-center p-[50px] max-lg:h-[426px] max-md:h-[530px] max-md:p-8"
                 style={{ backgroundImage: `url(${item.image})` }}
               >
-                <blockquote className="font-serif text-lg font-light leading-relaxed text-ink md:text-xl">
-                  {item.quote}
-                </blockquote>
-                <figcaption className="mt-8 font-sans text-[13px] font-medium uppercase tracking-[0.16em] text-taupe">
+                <figcaption className="mb-[30px] font-script text-[36px] leading-[1.3em] text-foreground max-md:text-[30px]">
                   {item.author}, {item.location}
                 </figcaption>
+                <blockquote className="font-body text-[15px] leading-[1.3em] text-foreground max-md:text-[14px]">
+                  {item.quote}
+                </blockquote>
               </figure>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-10 flex items-center justify-center gap-6">
-        <button
-          type="button"
-          onClick={scrollPrev}
-          aria-label="Previous testimonial"
-          className="text-taupe transition-colors hover:text-ink"
-        >
-          <ChevronLeft strokeWidth={1} className="h-6 w-6" />
-        </button>
-
-        <div className="flex items-center gap-2">
-          {testimonials.map((item, index) => (
-            <button
-              key={item.author}
-              type="button"
-              aria-label={`Go to testimonial ${index + 1}`}
-              onClick={() => emblaApi?.scrollTo(index)}
-              className={cn(
-                "h-[2px] w-8 transition-colors duration-300",
-                index === selected ? "bg-ink" : "bg-taupe/40"
-              )}
-            />
-          ))}
-        </div>
-
-        <button
-          type="button"
-          onClick={scrollNext}
-          aria-label="Next testimonial"
-          className="text-taupe transition-colors hover:text-ink"
-        >
-          <ChevronRight strokeWidth={1} className="h-6 w-6" />
-        </button>
+      {/* Pagination sits inside the slide area, as in the Elementor widget */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-5 flex items-center justify-center gap-2">
+        {testimonials.map((item, index) => (
+          <button
+            key={item.author}
+            type="button"
+            aria-label={`Go to testimonial ${index + 1}`}
+            onClick={() => scrollTo(index)}
+            className={cn(
+              "pointer-events-auto h-2 w-2 rounded-full transition-colors duration-300",
+              index === selected ? "bg-foreground" : "bg-foreground/30"
+            )}
+          />
+        ))}
       </div>
     </div>
   );

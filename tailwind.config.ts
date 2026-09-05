@@ -60,6 +60,7 @@ export default {
         serif: ["'Libre Caslon Text'", "serif"],
         body: ["'Open Sans'", "sans-serif"],
         sans: ["Montserrat", "sans-serif"],
+        script: ["'Oooh Baby'", "cursive"],
       },
       fontSize: {
         eyebrow: ["0.75rem", { lineHeight: "1", letterSpacing: "0.18em" }],

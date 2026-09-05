@@ -23,7 +23,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 22%;
 
-    --primary: 240 10% 6%;
+    --primary: 22 38% 63%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 33 26% 92%;
@@ -42,7 +42,11 @@
     --input: 27 8% 82%;
     --ring: 22 38% 63%;
 
-    --radius: 0px;
+    --radius: 3px;
+
+    /* Elementor's boxed container width and default gutters */
+    --container-width: 1140px;
+    --container-gap: 20px;
   }
 }
 
@@ -55,47 +59,204 @@
     scroll-behavior: smooth;
   }
 
+  /* Matches the Elementor kit body default */
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Open Sans", sans-serif;
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.7;
+  }
+}
+
+/*
+  Typography scale transcribed 1:1 from the Elementor widget settings, including
+  the two breakpoints the site actually uses: 1400px (laptop) and 767px (mobile).
+*/
+@layer components {
+  .t-display-xl {
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    font-size: 77px;
+    line-height: 1.1em;
   }
 
-  h1,
-  h2 {
-    @apply font-display font-light;
+  .t-display-lg {
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1.1em;
   }
 
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif font-light;
+  .t-display-sm {
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 1.1em;
+  }
+
+  .t-serif-lg {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 35px;
+    line-height: 1.2em;
+  }
+
+  .t-serif-md {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 27px;
+    line-height: 1.1em;
+  }
+
+  .t-serif-caps {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 1.1em;
+    text-transform: uppercase;
+  }
+
+  .t-serif-sm {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.1em;
+  }
+
+  .t-body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.4em;
+    letter-spacing: -0.2px;
+  }
+
+  .t-body-sm {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4em;
+    letter-spacing: -0.2px;
+  }
+
+  .t-body-lg {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2em;
+    letter-spacing: -0.2px;
+  }
+
+  @media (max-width: 1400px) {
+    .t-display-xl {
+      font-size: 60px;
+    }
+    .t-display-sm {
+      font-size: 23px;
+    }
+    .t-serif-lg {
+      font-size: 30px;
+    }
+    .t-serif-md {
+      font-size: 22px;
+    }
+    .t-body {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .t-display-xl {
+      font-size: 45px;
+    }
+    .t-display-lg {
+      font-size: 32px;
+    }
+    .t-display-sm {
+      font-size: 22px;
+    }
+    .t-serif-lg {
+      font-size: 19px;
+    }
+    .t-serif-md {
+      font-size: 22px;
+      line-height: 1.3em;
+    }
+    .t-serif-caps {
+      font-size: 20px;
+      line-height: 1.3em;
+    }
+    .t-serif-sm {
+      font-size: 17px;
+      line-height: 1.3em;
+    }
+    .t-body,
+    .t-body-sm {
+      font-size: 14px;
+    }
+  }
+}
+
+/*
+  Buttons. Elementor renders both variants at 12px/24px padding with a 3px
+  radius; only the fill and label size differ.
+*/
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Copper fill, white label — the default call to action */
+  .btn-primary {
+    @apply btn border-copper bg-copper text-white text-[12px];
+  }
+
+  .btn-primary:hover {
+    @apply bg-transparent text-copper;
+  }
+
+  /* Cream fill, copper label — used over dark imagery in the hero */
+  .btn-cream {
+    @apply btn border-cream bg-cream text-copper text-[14px];
+  }
+
+  .btn-cream:hover {
+    @apply bg-transparent text-cream;
+  }
+
+  @media (max-width: 767px) {
+    .btn-primary {
+      font-size: 13px;
+    }
   }
 }
 
 @layer components {
-  /* Small uppercase label used above most section headings */
-  .eyebrow {
-    @apply font-sans text-eyebrow font-medium uppercase text-taupe;
+  /* Elementor's boxed container */
+  .e-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: 10px;
   }
 
-  /* The site's single button treatment: thin outline, letterspaced label */
-  .btn-atelier {
-    @apply inline-flex items-center justify-center border border-current px-8 py-4
-           font-sans text-[14px] font-medium tracking-[0.12em]
-           transition-colors duration-300;
-  }
-
-  .btn-atelier-light {
-    @apply btn-atelier text-white hover:bg-white hover:text-ink;
-  }
-
-  .btn-atelier-dark {
-    @apply btn-atelier text-ink hover:bg-ink hover:text-white;
-  }
-
-  .section-padding {
-    @apply py-20 md:py-28;
+  /* The 40%-width rule under each pillar heading */
+  .pillar-divider {
+    width: 40%;
+    border-top: 1px solid #000;
   }
 }

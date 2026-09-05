@@ -1,8 +1,13 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { Instagram, Linkedin } from "lucide-react";
 import { footerLinks, legalLinks } from "@/data/navigation";
 import { subscribeToNewsletter } from "@/lib/forms";
 
+/*
+  Taupe band with the paper texture tiled at 20% width, exactly as the Elementor
+  container is configured.
+*/
 const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
@@ -23,19 +28,30 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="bg-taupe py-20 text-white">
-      <div className="mx-auto w-[95%] max-w-[1140px] text-center">
-        <p className="eyebrow text-white/70">Newsletter</p>
-        <h2 className="mt-6 font-display text-4xl font-light md:text-5xl">
+    <section
+      className="bg-taupe py-16"
+      style={{
+        backgroundImage: "url(/assets/texture-paper.jpg)",
+        backgroundSize: "20% auto",
+        backgroundRepeat: "repeat",
+      }}
+    >
+      <div className="e-container flex flex-col items-center">
+        <p className="mb-[23px] w-full text-left font-serif text-[14px] font-medium uppercase tracking-normal text-cream max-md:text-center">
+          newsletter
+        </p>
+
+        <h2 className="w-full text-left font-serif text-[34px] font-normal tracking-[-0.8px] text-cream max-md:text-center max-md:tracking-[-0.1px]">
           Stay connected to what matters
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-white/90">
+
+        <p className="mt-[19px] text-center font-sans text-[16px] font-normal leading-[1.2em] text-cream max-md:text-[14px]">
           Insights, curated travel notes, and meaningful updates delivered with intention.
         </p>
 
-        <form onSubmit={onSubmit} className="mx-auto mt-10 flex max-w-xl flex-col gap-4 sm:flex-row">
+        <form onSubmit={onSubmit} className="mt-5 flex w-full max-w-xl flex-col gap-[5px] sm:flex-row">
           <label htmlFor="newsletter-email" className="sr-only">
-            Email address
+            Email
           </label>
           <input
             id="newsletter-email"
@@ -43,16 +59,20 @@ const Newsletter = () => {
             required
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="Your email address"
-            className="flex-1 border border-white/50 bg-transparent px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/60 focus:border-white focus:outline-none"
+            placeholder="Email"
+            className="flex-1 rounded-[5px] border-none bg-white px-4 py-4 font-sans text-[15px] text-ink placeholder:text-taupe focus:outline-none focus:ring-2 focus:ring-copper"
           />
-          <button type="submit" disabled={status === "sending"} className="btn-atelier-light disabled:opacity-50">
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="rounded-[5px] bg-copper px-4 py-4 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
             {status === "sending" ? "Joining…" : "Join the circle"}
           </button>
         </form>
 
         {message && (
-          <p role="status" className="mt-4 font-sans text-[13px] text-white/80">
+          <p role="status" className="mt-4 font-sans text-[13px] text-cream">
             {message}
           </p>
         )}
@@ -65,30 +85,47 @@ export const Footer = () => (
   <footer>
     <Newsletter />
 
-    <div className="bg-ink py-16 text-white">
-      <div className="mx-auto flex w-[95%] max-w-[1140px] flex-col items-center gap-10">
+    <div className="bg-ink py-12">
+      <div className="e-container flex flex-col items-center gap-6">
         <Link to="/" aria-label="Incognito Atelier">
-          <img src="/assets/logo-horizontal-gold-white.svg" alt="Incognito Atelier" className="h-14 w-auto" />
+          <img
+            src="/assets/logo-stacked-color-alt.svg"
+            alt="Incognito Atelier"
+            className="w-[277px] max-md:w-[190px]"
+          />
         </Link>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <nav className="flex flex-wrap items-center justify-center">
           {footerLinks.map((link) => (
             <Link
               key={link.label}
               to={link.href}
-              className="font-sans text-[13px] font-medium text-white/80 transition-colors duration-300 hover:text-copper"
+              className="px-[13px] py-1 font-sans text-[11px] font-semibold text-white transition-colors duration-300 hover:text-copper max-md:text-[13px] max-md:py-[9px]"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+        <hr className="w-full border-white/20" />
+
+        <div className="flex items-center gap-5 text-copper">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <Instagram strokeWidth={1.25} className="h-5 w-5 transition-opacity hover:opacity-70" />
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <Linkedin strokeWidth={1.25} className="h-5 w-5 transition-opacity hover:opacity-70" />
+          </a>
+        </div>
+
+        <hr className="w-full border-white/20" />
+
+        <nav className="flex flex-wrap items-center justify-center">
           {legalLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="font-sans text-[12px] text-white/50 transition-colors duration-300 hover:text-white"
+              className="px-[13px] font-sans text-[9px] font-semibold text-white transition-colors duration-300 hover:text-copper"
             >
               {link.label}
             </a>
@@ -97,9 +134,10 @@ export const Footer = () => (
       </div>
     </div>
 
-    <div className="bg-[#383838] py-4 text-center">
-      <p className="font-sans text-[12px] text-white/60">
-        Copyright {new Date().getFullYear()} Incognito Atelier. All Rights Reserved. &nbsp;|&nbsp; Developed with ♥ by{" "}
+    <div className="bg-[#383838] py-4">
+      <p className="text-center font-sans text-[11px] font-medium leading-[1.2em] text-[#DFDFDF]">
+        Copyright {new Date().getFullYear()} Incognito Atelier. All Rights Reserved. &nbsp;|&nbsp;
+        Developed with ♥ by{" "}
         <a
           href="https://hearttalecreative.com"
           target="_blank"
