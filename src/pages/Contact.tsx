@@ -64,7 +64,7 @@ const InquiryForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full max-w-[500px] flex-col gap-3 p-[10px]">
+    <form onSubmit={onSubmit} className="flex w-full max-w-[500px] flex-col gap-[5px] p-[10px]">
       <label className="sr-only" htmlFor="contact-name">
         Full Name
       </label>

@@ -153,6 +153,14 @@ const LegacyTravelPortfolio = () => {
               philosophy—transforming travel from a series of trips into a curated collection of
               meaningful experiences that tell the story of your life.
             </p>
+            <div className="flex w-[20%] items-center justify-center max-md:hidden">
+              <img
+                src="/assets/logo-monogram-copper.svg"
+                alt=""
+                aria-hidden="true"
+                className="w-full"
+              />
+            </div>
             <p className="t-body max-w-[412px] text-foreground max-md:max-w-none max-md:text-center">
               This partnership allows us to curate, manage, and evolve your travel year after year
               with the precision of an art collection. Each journey is a new acquisition,
