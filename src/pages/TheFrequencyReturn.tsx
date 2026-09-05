@@ -34,11 +34,7 @@ const outcomes = [
 
 /* Ghost button used throughout this landing page: transparent fill, white rule. */
 const GhostButton = ({ children, size = 12 }: { children: string; size?: number }) => (
-  <a
-    href="#form"
-    className="inline-flex items-center justify-center rounded-[3px] border border-current px-6 py-3 font-sans font-medium uppercase transition-colors duration-300 hover:bg-white/10"
-    style={{ fontSize: size }}
-  >
+  <a href="#form" className={size === 14 ? "btn-light btn-lg" : "btn-light"}>
     {children}
   </a>
 );
@@ -69,7 +65,7 @@ const TheFrequencyReturn = () => {
             />
           </Reveal>
           <Reveal>
-            <h1 className="font-display text-[93px] font-light leading-[1.05em] max-lg:text-[64px] max-md:text-[44px]">
+            <h1 className="font-display text-[93px] font-light leading-[1em] max-lg:text-[64px] max-md:text-[44px]">
               The Frequency Return
             </h1>
           </Reveal>
@@ -79,11 +75,11 @@ const TheFrequencyReturn = () => {
             </p>
           </Reveal>
           <Reveal>
-            <p className="font-body text-[20px] max-md:text-[16px]">April 17–26, 2026</p>
-            <p className="font-body text-[16px] max-md:text-[14px]">
+            <p className="font-body text-[20px] leading-[1.2em] max-md:text-[16px]">April 17–26, 2026</p>
+            <p className="font-body text-[16px] leading-[1.2em] max-md:text-[14px]">
               Private luxury yacht | 15 women only
             </p>
-            <p className="mt-3 font-body text-[15px] leading-[1.4em] max-md:text-[14px]">
+            <p className="mt-3 max-w-[812px] font-body text-[15px] leading-[1.2em] max-md:text-[14px]">
               A 9-day, small-group luxury wellness retreat with wild dolphins, designed for nervous
               system regulation and emotional release.
             </p>
@@ -109,7 +105,7 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="flex items-start w-full flex-col justify-center gap-5 p-[10px] md:w-1/2">
+          <div className="flex items-start w-full flex-col justify-center gap-5 py-[45px] max-md:px-[10px] md:w-1/2">
             <Reveal delay={200} className="flex flex-col items-start gap-5">
               <p className="t-body text-foreground">
                 In nine days in Egypt, you release what has been weighing on your body and nervous
@@ -180,7 +176,7 @@ const TheFrequencyReturn = () => {
           className="bg-white"
           innerClassName="items-center justify-center gap-5 py-[55px] md:flex-row-reverse"
         >
-          <div className="flex items-start w-full flex-col gap-5 p-[10px] max-md:items-center md:w-1/2">
+          <div className="flex w-full flex-col items-start gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-1/2">
             <Reveal animation="fadeInLeft" className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[48px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[32px]">
                 Who this Experience is for
@@ -215,7 +211,7 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="flex w-full items-center justify-center p-[10px] md:w-1/2">
+          <div className="flex w-full items-center justify-center p-[50px] max-md:p-5 md:w-1/2">
             <Reveal animation="fadeInRight" className="w-full">
               <div className="relative flex min-h-[600px] w-full items-end justify-end overflow-hidden p-[25px]">
                 <BackgroundSlideshow images={audienceSlideshow} />
@@ -235,11 +231,11 @@ const TheFrequencyReturn = () => {
           className="min-h-[357px] bg-white py-[55px]"
           innerClassName="items-center justify-center gap-5 p-[10px]"
         >
-          <Reveal className="flex w-full max-w-[60%] flex-col items-center gap-5 text-center max-md:max-w-full">
+          <Reveal className="flex w-full max-w-[864px] flex-col items-center gap-5 text-center">
             <h2 className="font-display text-[48px] font-light leading-[1.1em] text-foreground max-md:text-[32px]">
               The Experience at a Glance
             </h2>
-            <p className="font-display text-[23px] font-light italic leading-[1.3em] text-foreground">
+            <p className="font-display text-[23px] font-light italic leading-[1.1em] text-foreground">
               This is not a workshop. It is a return.
             </p>
             <p className="t-body text-center text-foreground">
@@ -272,7 +268,7 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="relative flex w-full flex-col justify-center p-[10px] md:w-1/2">
+          <div className="relative flex w-full flex-col justify-center py-[45px] pr-[45px] max-md:px-[10px] md:w-1/2">
             <Reveal delay={200}>
               <p className="t-body max-md:text-center">
                 This is not a staged interaction or a bucket-list activity.
@@ -343,7 +339,7 @@ const TheFrequencyReturn = () => {
           innerClassName="min-h-[698px] items-center justify-center gap-5 py-[55px] text-white"
         >
 
-          <div className="relative flex w-full flex-col gap-5 p-[10px] max-md:items-center">
+          <div className="relative flex w-full max-w-[790px] flex-col gap-5 p-[10px] max-md:items-center">
             <Reveal className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[48px] font-light leading-[1.1em] max-md:text-center max-md:text-[32px]">
                 This Experience is not for Everyone
@@ -394,7 +390,7 @@ const TheFrequencyReturn = () => {
           className="bg-white"
           innerClassName="items-center justify-center gap-5 py-[55px] md:flex-row"
         >
-          <div className="flex w-full flex-col gap-5 p-[10px] max-md:items-center md:w-[40%]">
+          <div className="flex w-full flex-col items-start gap-5 p-[60px] max-md:items-center max-md:p-5 md:w-[40%]">
             <Reveal className="flex flex-col items-start gap-5">
               <h2 className="font-display text-[38px] font-light leading-[1.1em] text-foreground max-md:text-center max-md:text-[30px]">
                 A different Standard of Luxury.
@@ -421,7 +417,7 @@ const TheFrequencyReturn = () => {
             </Reveal>
           </div>
 
-          <div className="flex w-full items-center justify-center p-[10px] md:w-[60%]">
+          <div className="flex w-full items-center justify-center p-[50px] max-md:p-5 md:w-[60%]">
             <Reveal className="w-full">
               <div className="relative flex min-h-[431px] w-full items-end justify-end overflow-hidden p-[25px]">
                 <BackgroundSlideshow images={luxurySlideshow} />
